@@ -14,8 +14,9 @@ class ViewController: UIViewController {
     tableView.delegate = self
     tableView.dataSource = self
     print(dataFilePath ?? Notification.find)
+
   }
-//MARK: - Model Manupulation Methods
+  //MARK: - Model Manupulation Methods
   private func saveItems() {
     let encoder = PropertyListEncoder()
     do {
@@ -26,7 +27,6 @@ class ViewController: UIViewController {
     }
     self.tableView.reloadData()
   }
-
 
   private func loadItems() {
     if let data = try? Data(contentsOf: dataFilePath!) {
@@ -39,6 +39,7 @@ class ViewController: UIViewController {
     }
   }
 }
+
 //MARK: - TableViewDataSource
 extension ViewController: UITableViewDataSource {
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -48,6 +49,12 @@ extension ViewController: UITableViewDataSource {
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCell(withIdentifier: TableCell.identifier, for: indexPath) as! TableCell
     cell.configure(with: models)
+    let infoView = InfoView(frame: CGRect(x: 10, y: 530, width: tableView.frame.size.width, height: tableView.frame.size.height))
+    cell.addSubview(infoView)
+    let tab = InteractiveView(frame: CGRect(x: tableView.frame.size.width - 50, y: 175, width: 50, height: 375))
+    tab.layer.cornerRadius = tab.frame.size.width / 2
+    tab.layer.masksToBounds = false
+    cell.addSubview(tab)
     return cell
   }
 
@@ -56,8 +63,6 @@ extension ViewController: UITableViewDataSource {
   }
 
 }
+
 //MARK: - TableViewDelegate
-extension ViewController: UITableViewDelegate{
-
-}
-
+extension ViewController: UITableViewDelegate{}

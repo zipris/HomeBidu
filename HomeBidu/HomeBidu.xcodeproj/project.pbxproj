@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5212CE28277C066100908815 /* InfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5212CE27277C066100908815 /* InfoView.swift */; };
+		5212CE2E277C23C900908815 /* InteractiveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5212CE2D277C23C900908815 /* InteractiveView.swift */; };
 		522670DF27799D0A00D9C67C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522670DE27799D0A00D9C67C /* AppDelegate.swift */; };
 		522670E127799D0A00D9C67C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522670E027799D0A00D9C67C /* SceneDelegate.swift */; };
 		522670E327799D0A00D9C67C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522670E227799D0A00D9C67C /* ViewController.swift */; };
@@ -22,6 +24,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5212CE27277C066100908815 /* InfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoView.swift; sourceTree = "<group>"; };
+		5212CE2D277C23C900908815 /* InteractiveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InteractiveView.swift; sourceTree = "<group>"; };
 		522670DB27799D0A00D9C67C /* HomeBidu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HomeBidu.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		522670DE27799D0A00D9C67C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		522670E027799D0A00D9C67C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -101,6 +105,8 @@
 			isa = PBXGroup;
 			children = (
 				522670E227799D0A00D9C67C /* ViewController.swift */,
+				5212CE27277C066100908815 /* InfoView.swift */,
+				5212CE2D277C23C900908815 /* InteractiveView.swift */,
 				522670F92779AAB900D9C67C /* TableCell */,
 				522670F82779AAAD00D9C67C /* CollectionCell */,
 			);
@@ -212,6 +218,8 @@
 				5226710C2779ABF100D9C67C /* Model.swift in Sources */,
 				522670E127799D0A00D9C67C /* SceneDelegate.swift in Sources */,
 				52E282D2277B5902006C8C12 /* Constants.swift in Sources */,
+				5212CE2E277C23C900908815 /* InteractiveView.swift in Sources */,
+				5212CE28277C066100908815 /* InfoView.swift in Sources */,
 				522671082779AB2E00D9C67C /* HomeCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

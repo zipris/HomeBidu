@@ -1,12 +1,9 @@
 import Foundation
 
 struct Model: Codable {
-  var name: String = "Quà Tặng Cuộc Sống"
-  var active: String = "10 phút trước "
-  var status: String = """
-No pain No gain !!!
-You gots this.
-"""
-  var hagtag: String = "#CuocSong #Anh3D"
+  var name: String
+  var active: String
+  var status: String
+  var hagtag: String
   let imageName: String
 }
