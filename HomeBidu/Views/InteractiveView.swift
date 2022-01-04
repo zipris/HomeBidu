@@ -6,35 +6,45 @@ class InteractiveView: UIView {
   private lazy var likeButton: UIButton = {
     let likeButton = UIButton()
     likeButton.setImage(UIImage(named: Image.heart), for: .normal)
-    likeButton.addTarget(self, action: #selector(selectedLike), for: .touchUpInside)
+    likeButton.addTarget(self,
+                         action: #selector(selectedLike),
+                         for: .touchUpInside)
     likeButton.translatesAutoresizingMaskIntoConstraints = false
     return likeButton
   }()
   private lazy var cmtButton: UIButton = {
     let cmtButton = UIButton()
     cmtButton.setImage(UIImage(named: Image.chat), for: .normal)
-    cmtButton.addTarget(self, action: #selector(selectedCmt), for: .touchUpInside)
+    cmtButton.addTarget(self,
+                        action: #selector(selectedCmt),
+                        for: .touchUpInside)
     cmtButton.translatesAutoresizingMaskIntoConstraints = false
     return cmtButton
   }()
   private lazy var shareButton: UIButton = {
     let shareButton = UIButton()
     shareButton.setImage(UIImage(named: Image.share), for: .normal)
-    shareButton.addTarget(self, action: #selector(selectedShared), for: .touchUpInside)
+    shareButton.addTarget(self,
+                          action: #selector(selectedShared),
+                          for: .touchUpInside)
     shareButton.translatesAutoresizingMaskIntoConstraints = false
     return shareButton
   }()
   private lazy var saveButton: UIButton = {
     let saveButton = UIButton()
     saveButton.setImage(UIImage(named: Image.save), for: .normal)
-    saveButton.addTarget(self, action: #selector(selectedSave), for: .touchUpInside)
+    saveButton.addTarget(self,
+                         action: #selector(selectedSave),
+                         for: .touchUpInside)
     saveButton.translatesAutoresizingMaskIntoConstraints = false
     return saveButton
   }()
   private lazy var moreButon: UIButton = {
     let moreButton = UIButton()
     moreButton.setImage(UIImage(named: Image.more), for: .normal)
-    moreButton.addTarget(self, action: #selector(selectedMore), for: .touchUpInside)
+    moreButton.addTarget(self,
+                         action: #selector(selectedMore),
+                         for: .touchUpInside)
     moreButton.translatesAutoresizingMaskIntoConstraints = false
     return moreButton
   }()
@@ -76,9 +86,16 @@ extension InteractiveView {
   private func setupView() {
     self.layer.cornerRadius = self.frame.size.width / 2.5
     self.clipsToBounds = true
-    self.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMinXMinYCorner]
+    self.layer.maskedCorners = [.layerMinXMaxYCorner,
+                                .layerMinXMinYCorner]
     self.backgroundColor = UIColor(white: 1.0, alpha: 0.3)
-    addSubviews(likeButton, countLikeLabel, cmtButton, countCmtLabel, shareButton, saveButton, moreButon)
+    addSubviews(likeButton,
+                countLikeLabel,
+                cmtButton,
+                countCmtLabel,
+                shareButton,
+                saveButton,
+                moreButon)
   }
   private func setupConstants() {
     NSLayoutConstraint.activate([
@@ -102,7 +119,7 @@ extension InteractiveView {
       cmtButton.leadingAnchor.constraint(equalTo: self.leadingAnchor),
       cmtButton.trailingAnchor.constraint(equalTo: self.trailingAnchor),
       cmtButton.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 1.0),
-      cmtButton.heightAnchor.constraint(equalTo: self.heightAnchor, multiplier: 0.2)
+      cmtButton.heightAnchor.constraint(equalTo: self.heightAnchor, multiplier: 0.15)
     ])
 
     NSLayoutConstraint.activate([
@@ -143,7 +160,7 @@ extension InteractiveView {
 
 //MARK: - Action
 extension InteractiveView {
-  @objc func selectedLike(_ sender: UIButton) {
+  @objc private func selectedLike(_ sender: UIButton) {
     if sender.image(for: .normal) == UIImage(named: Image.heart){
       countLikeLabel.text = String(countLike + 1)
       return sender.setImage(UIImage(named: Image.redHeart), for: .normal)
@@ -152,20 +169,20 @@ extension InteractiveView {
       return sender.setImage(UIImage(named: Image.heart), for: .normal)
     }
   }
-  @objc func selectedCmt(_ sender: UIButton) {
+  @objc private func selectedCmt(_ sender: UIButton) {
     if !sender.isSelected {
       countCmtLabel.text = String(countCmt + 1)
     } else {
       countCmtLabel.text = String(countCmt)
     }
   }
-  @objc func selectedShared(_ sender: UIButton) {
+  @objc private func selectedShared(_ sender: UIButton) {
     print(Button.shared)
   }
-  @objc func selectedSave(_ sender: UIButton) {
+  @objc private func selectedSave(_ sender: UIButton) {
     print(Button.save)
   }
-  @objc func selectedMore(_ sender: UIButton) {
+  @objc private func selectedMore(_ sender: UIButton) {
     print(Button.more)
   }
 }

@@ -11,12 +11,12 @@ class HomeBiduViewController: UIViewController {
 extension HomeBiduViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
-    models.append(UserModels.init(name: "1", active: "2", status: "3", hagtag: "4", imageName: "image_1"))
-    models.append(UserModels.init(name: "1", active: "2", status: "3", hagtag: "4", imageName: "image_2"))
-    models.append(UserModels.init(name: "1", active: "2", status: "3", hagtag: "4", imageName: "image_3"))
-    models.append(UserModels.init(name: "1", active: "2", status: "3", hagtag: "4", imageName: "image_4"))
-    models.append(UserModels.init(name: "1", active: "2", status: "3", hagtag: "4", imageName: "image_5"))
-    saveItems()
+//    models.append(UserModels.init(name: "1", active: "2", status: "3", hagtag: "4", imageName: "image_1"))
+//    models.append(UserModels.init(name: "1", active: "2", status: "3", hagtag: "4", imageName: "image_2"))
+//    models.append(UserModels.init(name: "1", active: "2", status: "3", hagtag: "4", imageName: "image_3"))
+//    models.append(UserModels.init(name: "1", active: "2", status: "3", hagtag: "4", imageName: "image_4"))
+//    models.append(UserModels.init(name: "1", active: "2", status: "3", hagtag: "4", imageName: "image_5"))
+//    saveItems()
     rigisterTableCell()
   }
 }
@@ -45,7 +45,7 @@ extension HomeBiduViewController {
   }
   private func rigisterTableCell() {
     loadItems()
-    tableView.register(HomeTableCell.nib(), forCellReuseIdentifier: HomeTableCell.identifier)
+    tableView.register(HomeTableCell.getNib(), forCellReuseIdentifier: HomeTableCell.getNibName())
     tableView.delegate = self
     tableView.dataSource = self
   }
@@ -65,15 +65,19 @@ extension HomeBiduViewController: UITableViewDataSource {
     return headerView
   }
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    let cell = tableView.dequeueReusableCell(withIdentifier: HomeTableCell.identifier, for: indexPath) as! HomeTableCell
+    let cell = tableView.dequeueReusableCell(withIdentifier: HomeTableCell.getNibName(), for: indexPath) as! HomeTableCell
     cell.configure(with: models)
     return cell
   }
 }
 
 //MARK: - TableViewDelegate
-extension HomeBiduViewController: UITableViewDelegate{
+extension HomeBiduViewController: UITableViewDelegate {
   func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
     return tableView.frame.size.height * 0.8
   }
 }
+
+//MARK: - Protocol BaseCell
+extension UITableViewCell: BaseCellProtocol {}
+

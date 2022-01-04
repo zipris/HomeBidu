@@ -31,7 +31,9 @@ class InfoView: UIView {
   private lazy var followButton: UIButton = {
     let follow = UIButton()
     follow.setImage(UIImage(named: Image.follow), for: .normal)
-    follow.addTarget(self, action: #selector(buttonFollow), for: .touchUpInside)
+    follow.addTarget(self,
+                     action: #selector(buttonFollow),
+                     for: .touchUpInside)
     follow.translatesAutoresizingMaskIntoConstraints = false
     return follow
   }()
@@ -76,14 +78,21 @@ class InfoView: UIView {
 
 //MARK: - Setup View
 extension InfoView {
-  func setupInfo() {
+  private func setupInfo() {
+    backgroundColor = .clear
     setupView()
     setupConstants()
   }
-  func setupView(){
-    addSubviews(avatarImageView, nameLabel, famousImageView, activeLabel, followButton, statusLabel, hagtagLabel)
+  private func setupView(){
+    addSubviews(avatarImageView,
+                nameLabel,
+                famousImageView,
+                activeLabel,
+                followButton,
+                statusLabel,
+                hagtagLabel)
   }
-  func setupConstants(){
+  private func setupConstants(){
     NSLayoutConstraint.activate([
       avatarImageView.topAnchor.constraint(equalTo: self.topAnchor, constant: 10),
       avatarImageView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 10),
@@ -118,6 +127,7 @@ extension InfoView {
       statusLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 10),
       statusLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor)
     ])
+    
     NSLayoutConstraint.activate([
       hagtagLabel.topAnchor.constraint(equalTo: statusLabel.bottomAnchor),
       hagtagLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 10),

@@ -21,11 +21,29 @@
 		52519575277E16C20079723C /* HomeTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52519573277E16C20079723C /* HomeTableCell.xib */; };
 		5251957B277E17180079723C /* HomeCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52519579277E17180079723C /* HomeCollectionCell.swift */; };
 		5251957C277E17180079723C /* HomeCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5251957A277E17180079723C /* HomeCollectionCell.xib */; };
+		527275772783E4420053108A /* HomeBiduTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 527275762783E4420053108A /* HomeBiduTests.swift */; };
 		52B6C3C82781B00C004233A6 /* JosefinSans.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 52B6C3C72781B00C004233A6 /* JosefinSans.ttf */; };
 		52B6C3CC2781B025004233A6 /* Lexend.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 52B6C3CB2781B025004233A6 /* Lexend.ttf */; };
 		52B6C3D02781B14B004233A6 /* JosefinSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 52B6C3CF2781B14B004233A6 /* JosefinSans-Regular.ttf */; };
-		52CD43962783189A00319231 /* extensionUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52CD43952783189A00319231 /* extensionUIView.swift */; };
+		52CD43962783189A00319231 /* ExtensionUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52CD43952783189A00319231 /* ExtensionUIView.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		527275792783E4420053108A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5251953F277E150E0079723C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 52519546277E150E0079723C;
+			remoteInfo = HomeBidu;
+		};
+		527275892783E5EB0053108A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5251953F277E150E0079723C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 52519546277E150E0079723C;
+			remoteInfo = HomeBidu;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		52519547277E150F0079723C /* HomeBidu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HomeBidu.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -44,14 +62,32 @@
 		52519573277E16C20079723C /* HomeTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeTableCell.xib; sourceTree = "<group>"; };
 		52519579277E17180079723C /* HomeCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCollectionCell.swift; sourceTree = "<group>"; };
 		5251957A277E17180079723C /* HomeCollectionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeCollectionCell.xib; sourceTree = "<group>"; };
+		527275742783E4420053108A /* HomeBiduTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HomeBiduTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		527275762783E4420053108A /* HomeBiduTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeBiduTests.swift; sourceTree = "<group>"; };
+		527275782783E4420053108A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		527275842783E5EB0053108A /* HomeBiduUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HomeBiduUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		52B6C3C72781B00C004233A6 /* JosefinSans.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = JosefinSans.ttf; sourceTree = "<group>"; };
 		52B6C3CB2781B025004233A6 /* Lexend.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Lexend.ttf; sourceTree = "<group>"; };
 		52B6C3CF2781B14B004233A6 /* JosefinSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "JosefinSans-Regular.ttf"; sourceTree = "<group>"; };
-		52CD43952783189A00319231 /* extensionUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extensionUIView.swift; sourceTree = "<group>"; };
+		52CD43952783189A00319231 /* ExtensionUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionUIView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		52519544277E150E0079723C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		527275712783E4420053108A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		527275812783E5EB0053108A /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -65,6 +101,7 @@
 			isa = PBXGroup;
 			children = (
 				52519549277E150F0079723C /* HomeBidu */,
+				527275752783E4420053108A /* HomeBiduTests */,
 				52519548277E150F0079723C /* Products */,
 			);
 			sourceTree = "<group>";
@@ -73,6 +110,8 @@
 			isa = PBXGroup;
 			children = (
 				52519547277E150F0079723C /* HomeBidu.app */,
+				527275742783E4420053108A /* HomeBiduTests.xctest */,
+				527275842783E5EB0053108A /* HomeBiduUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -85,6 +124,7 @@
 				52519562277E15440079723C /* Models */,
 				52519560277E15320079723C /* Views */,
 				5251955F277E15290079723C /* Controllers */,
+				52519561277E15390079723C /* Supports */,
 				52519553277E15180079723C /* Assets.xcassets */,
 				52519555277E15180079723C /* LaunchScreen.storyboard */,
 				52519558277E15180079723C /* Info.plist */,
@@ -98,7 +138,6 @@
 				5251954E277E150F0079723C /* HomeBiduViewController.swift */,
 				52519571277E16910079723C /* HomeTableCell */,
 				52519578277E16F10079723C /* HomeColletionCell */,
-				52519561277E15390079723C /* Supports */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -118,7 +157,7 @@
 			children = (
 				52B6C3C12781AD44004233A6 /* Font */,
 				5251956D277E16230079723C /* Constants.swift */,
-				52CD43952783189A00319231 /* extensionUIView.swift */,
+				52CD43952783189A00319231 /* ExtensionUIView.swift */,
 			);
 			path = Supports;
 			sourceTree = "<group>";
@@ -147,6 +186,15 @@
 				5251957A277E17180079723C /* HomeCollectionCell.xib */,
 			);
 			name = HomeColletionCell;
+			sourceTree = "<group>";
+		};
+		527275752783E4420053108A /* HomeBiduTests */ = {
+			isa = PBXGroup;
+			children = (
+				527275762783E4420053108A /* HomeBiduTests.swift */,
+				527275782783E4420053108A /* Info.plist */,
+			);
+			path = HomeBiduTests;
 			sourceTree = "<group>";
 		};
 		52B6C3C12781AD44004233A6 /* Font */ = {
@@ -179,6 +227,42 @@
 			productReference = 52519547277E150F0079723C /* HomeBidu.app */;
 			productType = "com.apple.product-type.application";
 		};
+		527275732783E4420053108A /* HomeBiduTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5272757D2783E4420053108A /* Build configuration list for PBXNativeTarget "HomeBiduTests" */;
+			buildPhases = (
+				527275702783E4420053108A /* Sources */,
+				527275712783E4420053108A /* Frameworks */,
+				527275722783E4420053108A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5272757A2783E4420053108A /* PBXTargetDependency */,
+			);
+			name = HomeBiduTests;
+			productName = HomeBiduTests;
+			productReference = 527275742783E4420053108A /* HomeBiduTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		527275832783E5EB0053108A /* HomeBiduUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5272758B2783E5EB0053108A /* Build configuration list for PBXNativeTarget "HomeBiduUITests" */;
+			buildPhases = (
+				527275802783E5EB0053108A /* Sources */,
+				527275812783E5EB0053108A /* Frameworks */,
+				527275822783E5EB0053108A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5272758A2783E5EB0053108A /* PBXTargetDependency */,
+			);
+			name = HomeBiduUITests;
+			productName = HomeBiduUITests;
+			productReference = 527275842783E5EB0053108A /* HomeBiduUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -190,6 +274,14 @@
 				TargetAttributes = {
 					52519546277E150E0079723C = {
 						CreatedOnToolsVersion = 12.4;
+					};
+					527275732783E4420053108A = {
+						CreatedOnToolsVersion = 12.4;
+						TestTargetID = 52519546277E150E0079723C;
+					};
+					527275832783E5EB0053108A = {
+						CreatedOnToolsVersion = 12.4;
+						TestTargetID = 52519546277E150E0079723C;
 					};
 				};
 			};
@@ -207,6 +299,8 @@
 			projectRoot = "";
 			targets = (
 				52519546277E150E0079723C /* HomeBidu */,
+				527275732783E4420053108A /* HomeBiduTests */,
+				527275832783E5EB0053108A /* HomeBiduUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -227,6 +321,20 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		527275722783E4420053108A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		527275822783E5EB0053108A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -234,7 +342,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				52CD43962783189A00319231 /* extensionUIView.swift in Sources */,
+				52CD43962783189A00319231 /* ExtensionUIView.swift in Sources */,
 				5251954F277E150F0079723C /* HomeBiduViewController.swift in Sources */,
 				5251957B277E17180079723C /* HomeCollectionCell.swift in Sources */,
 				5251954B277E150F0079723C /* AppDelegate.swift in Sources */,
@@ -247,7 +355,35 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		527275702783E4420053108A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				527275772783E4420053108A /* HomeBiduTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		527275802783E5EB0053108A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		5272757A2783E4420053108A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 52519546277E150E0079723C /* HomeBidu */;
+			targetProxy = 527275792783E4420053108A /* PBXContainerItemProxy */;
+		};
+		5272758A2783E5EB0053108A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 52519546277E150E0079723C /* HomeBidu */;
+			targetProxy = 527275892783E5EB0053108A /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		52519550277E150F0079723C /* Main.storyboard */ = {
@@ -421,6 +557,80 @@
 			};
 			name = Release;
 		};
+		5272757B2783E4420053108A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = HomeBiduTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.apple.HomeBiduTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HomeBidu.app/HomeBidu";
+			};
+			name = Debug;
+		};
+		5272757C2783E4420053108A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = HomeBiduTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.apple.HomeBiduTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HomeBidu.app/HomeBidu";
+			};
+			name = Release;
+		};
+		5272758C2783E5EB0053108A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = HomeBiduUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.apple.HomeBiduUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = HomeBidu;
+			};
+			name = Debug;
+		};
+		5272758D2783E5EB0053108A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = HomeBiduUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.apple.HomeBiduUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = HomeBidu;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -438,6 +648,24 @@
 			buildConfigurations = (
 				5251955C277E15180079723C /* Debug */,
 				5251955D277E15180079723C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5272757D2783E4420053108A /* Build configuration list for PBXNativeTarget "HomeBiduTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5272757B2783E4420053108A /* Debug */,
+				5272757C2783E4420053108A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5272758B2783E5EB0053108A /* Build configuration list for PBXNativeTarget "HomeBiduUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5272758C2783E5EB0053108A /* Debug */,
+				5272758D2783E5EB0053108A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
