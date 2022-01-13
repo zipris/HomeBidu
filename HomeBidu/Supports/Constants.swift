@@ -1,11 +1,17 @@
 import Foundation
 
+let sizeIphone = 0.77
+
 struct Identifier {
   static let homeIdentifier = "HomeCollectionCell"
   static let tableIdentifier = "HomeTableCell"
 }
-struct File {
-  static let plist = "Test.plist"
+struct Url {
+  static let url = "https://api-staging.bidu.com.vn/v1/post/list-post?categoryId=ALL&page=1&sort=recent"
+  static let header = [
+    "x-api-key": "fashionapp.$2a$10$4Z1a2mIuS/rv6CqjGj9TSeuax2yT0s03IiX5hVAt9JrIKdkVuk8eq",
+    "Accept-Language": "vi"
+  ]
 }
 struct Image {
   static let heart = "tim"

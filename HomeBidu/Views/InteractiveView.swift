@@ -1,11 +1,13 @@
 import UIKit
 
 class InteractiveView: UIView {
-  private lazy var countLike: Int = 34
-  private lazy var countCmt: Int = 34
+  private var feed: FeedData?
+  private var likeCount: Int?
   private lazy var likeButton: UIButton = {
     let likeButton = UIButton()
     likeButton.setImage(UIImage(named: Image.heart), for: .normal)
+    likeButton.setImage(UIImage(named: Image.redHeart), for: .selected)
+    likeButton.isSelected = feed?.isLike ?? false
     likeButton.addTarget(self,
                          action: #selector(selectedLike),
                          for: .touchUpInside)
@@ -15,6 +17,7 @@ class InteractiveView: UIView {
   private lazy var cmtButton: UIButton = {
     let cmtButton = UIButton()
     cmtButton.setImage(UIImage(named: Image.chat), for: .normal)
+    cmtButton.isSelected = false
     cmtButton.addTarget(self,
                         action: #selector(selectedCmt),
                         for: .touchUpInside)
@@ -24,6 +27,7 @@ class InteractiveView: UIView {
   private lazy var shareButton: UIButton = {
     let shareButton = UIButton()
     shareButton.setImage(UIImage(named: Image.share), for: .normal)
+    shareButton.isSelected = false
     shareButton.addTarget(self,
                           action: #selector(selectedShared),
                           for: .touchUpInside)
@@ -33,6 +37,7 @@ class InteractiveView: UIView {
   private lazy var saveButton: UIButton = {
     let saveButton = UIButton()
     saveButton.setImage(UIImage(named: Image.save), for: .normal)
+    saveButton.isSelected = feed?.isBookmark ?? false
     saveButton.addTarget(self,
                          action: #selector(selectedSave),
                          for: .touchUpInside)
@@ -42,6 +47,7 @@ class InteractiveView: UIView {
   private lazy var moreButon: UIButton = {
     let moreButton = UIButton()
     moreButton.setImage(UIImage(named: Image.more), for: .normal)
+    moreButton.isSelected = false
     moreButton.addTarget(self,
                          action: #selector(selectedMore),
                          for: .touchUpInside)
@@ -50,7 +56,7 @@ class InteractiveView: UIView {
   }()
   private lazy var countLikeLabel: UILabel = {
     let countLikeLabel = UILabel()
-    countLikeLabel.text = String(countLike)
+    countLikeLabel.text = String(feed?.likeCount ?? 0)
     countLikeLabel.textAlignment = .center
     countLikeLabel.textColor = .white
     countLikeLabel.font = UIFont(name: Font.lexendRegularFont, size: 13.0)
@@ -59,7 +65,7 @@ class InteractiveView: UIView {
   }()
   private lazy var countCmtLabel: UILabel = {
     let countCmtLabel = UILabel()
-    countCmtLabel.text = String(countCmt)
+    countCmtLabel.text = String(feed?.numberOfComments ?? 0)
     countCmtLabel.textAlignment = .center
     countCmtLabel.textColor = .white
     countCmtLabel.font = UIFont(name: Font.lexendRegularFont, size: 13.0)
@@ -81,7 +87,7 @@ class InteractiveView: UIView {
 extension InteractiveView {
   private func setupTab(){
     setupView()
-    setupConstants()
+    setupConstaints()
   }
   private func setupView() {
     self.layer.cornerRadius = self.frame.size.width / 2.5
@@ -97,7 +103,7 @@ extension InteractiveView {
                 saveButton,
                 moreButon)
   }
-  private func setupConstants() {
+  private func setupConstaints() {
     NSLayoutConstraint.activate([
       likeButton.topAnchor.constraint(equalTo: self.topAnchor, constant: 10),
       likeButton.leadingAnchor.constraint(equalTo: self.leadingAnchor),
@@ -161,20 +167,19 @@ extension InteractiveView {
 //MARK: - Action
 extension InteractiveView {
   @objc private func selectedLike(_ sender: UIButton) {
-    if sender.image(for: .normal) == UIImage(named: Image.heart){
-      countLikeLabel.text = String(countLike + 1)
-      return sender.setImage(UIImage(named: Image.redHeart), for: .normal)
+    sender.isSelected.toggle()
+    if sender.isSelected {
+      countLikeLabel.text = String(likeCount! + 1)
     } else {
-      countLikeLabel.text = String(countLike)
-      return sender.setImage(UIImage(named: Image.heart), for: .normal)
+      countLikeLabel.text = String(likeCount!)
     }
   }
   @objc private func selectedCmt(_ sender: UIButton) {
-    if !sender.isSelected {
-      countCmtLabel.text = String(countCmt + 1)
-    } else {
-      countCmtLabel.text = String(countCmt)
-    }
+//    if !sender.isSelected {
+//      countCmtLabel.text = String(countCmt + 1)
+//    } else {
+//      countCmtLabel.text = String(countCmt)
+//    }
   }
   @objc private func selectedShared(_ sender: UIButton) {
     print(Button.shared)
@@ -184,5 +189,12 @@ extension InteractiveView {
   }
   @objc private func selectedMore(_ sender: UIButton) {
     print(Button.more)
+  }
+}
+extension InteractiveView {
+  public func getInteractive(with interactive: FeedData) {
+    countLikeLabel.text = String(interactive.likeCount)
+    likeCount = interactive.likeCount
+    likeButton.isSelected = interactive.isLike
   }
 }

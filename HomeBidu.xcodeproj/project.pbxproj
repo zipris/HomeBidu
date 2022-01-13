@@ -7,13 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		520B6D7B2785407E00DEDAF4 /* FeedModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 520B6D7A2785407E00DEDAF4 /* FeedModel.swift */; };
+		520B6DB8278584DF00DEDAF4 /* ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 520B6DB7278584DF00DEDAF4 /* ApiService.swift */; };
 		5251954B277E150F0079723C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5251954A277E150F0079723C /* AppDelegate.swift */; };
 		5251954D277E150F0079723C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5251954C277E150F0079723C /* SceneDelegate.swift */; };
 		5251954F277E150F0079723C /* HomeBiduViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5251954E277E150F0079723C /* HomeBiduViewController.swift */; };
 		52519552277E150F0079723C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52519550277E150F0079723C /* Main.storyboard */; };
 		52519554277E15180079723C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 52519553277E15180079723C /* Assets.xcassets */; };
 		52519557277E15180079723C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52519555277E15180079723C /* LaunchScreen.storyboard */; };
-		52519564277E15A40079723C /* UserModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52519563277E15A40079723C /* UserModels.swift */; };
 		52519568277E15E60079723C /* InfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52519567277E15E60079723C /* InfoView.swift */; };
 		5251956B277E15FA0079723C /* InteractiveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5251956A277E15FA0079723C /* InteractiveView.swift */; };
 		5251956E277E16230079723C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5251956D277E16230079723C /* Constants.swift */; };
@@ -25,7 +26,7 @@
 		52B6C3C82781B00C004233A6 /* JosefinSans.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 52B6C3C72781B00C004233A6 /* JosefinSans.ttf */; };
 		52B6C3CC2781B025004233A6 /* Lexend.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 52B6C3CB2781B025004233A6 /* Lexend.ttf */; };
 		52B6C3D02781B14B004233A6 /* JosefinSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 52B6C3CF2781B14B004233A6 /* JosefinSans-Regular.ttf */; };
-		52CD43962783189A00319231 /* ExtensionUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52CD43952783189A00319231 /* ExtensionUIView.swift */; };
+		52CD43962783189A00319231 /* ExtensionUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52CD43952783189A00319231 /* ExtensionUI.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +47,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		520B6D7A2785407E00DEDAF4 /* FeedModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedModel.swift; sourceTree = "<group>"; };
+		520B6DB7278584DF00DEDAF4 /* ApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiService.swift; sourceTree = "<group>"; };
 		52519547277E150F0079723C /* HomeBidu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HomeBidu.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5251954A277E150F0079723C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5251954C277E150F0079723C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -54,7 +57,6 @@
 		52519553277E15180079723C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		52519556277E15180079723C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		52519558277E15180079723C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		52519563277E15A40079723C /* UserModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModels.swift; sourceTree = "<group>"; };
 		52519567277E15E60079723C /* InfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoView.swift; sourceTree = "<group>"; };
 		5251956A277E15FA0079723C /* InteractiveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InteractiveView.swift; sourceTree = "<group>"; };
 		5251956D277E16230079723C /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -69,7 +71,7 @@
 		52B6C3C72781B00C004233A6 /* JosefinSans.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = JosefinSans.ttf; sourceTree = "<group>"; };
 		52B6C3CB2781B025004233A6 /* Lexend.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Lexend.ttf; sourceTree = "<group>"; };
 		52B6C3CF2781B14B004233A6 /* JosefinSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "JosefinSans-Regular.ttf"; sourceTree = "<group>"; };
-		52CD43952783189A00319231 /* ExtensionUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionUIView.swift; sourceTree = "<group>"; };
+		52CD43952783189A00319231 /* ExtensionUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionUI.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,14 +121,12 @@
 		52519549277E150F0079723C /* HomeBidu */ = {
 			isa = PBXGroup;
 			children = (
-				5251954A277E150F0079723C /* AppDelegate.swift */,
-				5251954C277E150F0079723C /* SceneDelegate.swift */,
+				52FB1E19278F4224003FE17A /* Scene + App */,
+				52FB1E12278F410B003FE17A /* Networking */,
 				52519562277E15440079723C /* Models */,
 				52519560277E15320079723C /* Views */,
 				5251955F277E15290079723C /* Controllers */,
 				52519561277E15390079723C /* Supports */,
-				52519553277E15180079723C /* Assets.xcassets */,
-				52519555277E15180079723C /* LaunchScreen.storyboard */,
 				52519558277E15180079723C /* Info.plist */,
 			);
 			path = HomeBidu;
@@ -155,9 +155,11 @@
 		52519561277E15390079723C /* Supports */ = {
 			isa = PBXGroup;
 			children = (
-				52B6C3C12781AD44004233A6 /* Font */,
 				5251956D277E16230079723C /* Constants.swift */,
-				52CD43952783189A00319231 /* ExtensionUIView.swift */,
+				52CD43952783189A00319231 /* ExtensionUI.swift */,
+				52B6C3C12781AD44004233A6 /* Font */,
+				52519553277E15180079723C /* Assets.xcassets */,
+				52519555277E15180079723C /* LaunchScreen.storyboard */,
 			);
 			path = Supports;
 			sourceTree = "<group>";
@@ -165,7 +167,7 @@
 		52519562277E15440079723C /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				52519563277E15A40079723C /* UserModels.swift */,
+				520B6D7A2785407E00DEDAF4 /* FeedModel.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -205,6 +207,23 @@
 				52B6C3CF2781B14B004233A6 /* JosefinSans-Regular.ttf */,
 			);
 			name = Font;
+			sourceTree = "<group>";
+		};
+		52FB1E12278F410B003FE17A /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				520B6DB7278584DF00DEDAF4 /* ApiService.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		52FB1E19278F4224003FE17A /* Scene + App */ = {
+			isa = PBXGroup;
+			children = (
+				5251954C277E150F0079723C /* SceneDelegate.swift */,
+				5251954A277E150F0079723C /* AppDelegate.swift */,
+			);
+			name = "Scene + App";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -342,15 +361,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				52CD43962783189A00319231 /* ExtensionUIView.swift in Sources */,
+				52CD43962783189A00319231 /* ExtensionUI.swift in Sources */,
 				5251954F277E150F0079723C /* HomeBiduViewController.swift in Sources */,
+				520B6D7B2785407E00DEDAF4 /* FeedModel.swift in Sources */,
 				5251957B277E17180079723C /* HomeCollectionCell.swift in Sources */,
 				5251954B277E150F0079723C /* AppDelegate.swift in Sources */,
 				5251954D277E150F0079723C /* SceneDelegate.swift in Sources */,
 				5251956B277E15FA0079723C /* InteractiveView.swift in Sources */,
 				5251956E277E16230079723C /* Constants.swift in Sources */,
+				520B6DB8278584DF00DEDAF4 /* ApiService.swift in Sources */,
 				52519568277E15E60079723C /* InfoView.swift in Sources */,
-				52519564277E15A40079723C /* UserModels.swift in Sources */,
 				52519574277E16C20079723C /* HomeTableCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -1,6 +1,7 @@
 import UIKit
 
 class HomeCollectionCell: UICollectionViewCell {
+  
   @IBOutlet weak var imageView: UIImageView!
 }
 
@@ -13,11 +14,14 @@ extension HomeCollectionCell {
 
 //MARK: - Help HomeColletionCell
 extension HomeCollectionCell {
-  public func configure(with model: UserModels) {
-    self.imageView.image = UIImage(named: model.imageName)
-    self.imageView.contentMode = .scaleAspectFill
+  public func getCollectionCell(with file: File) {
+    imageView.image = nil
+    let url = URL(string: file.url!)
+    imageView.loadImage(at: url!)
+    imageView.contentMode = .scaleAspectFill
   }
 }
+
 //MARK: - Protocol BaseCell
 extension HomeCollectionCell: BaseCellProtocol {}
 

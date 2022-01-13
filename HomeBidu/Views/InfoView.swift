@@ -1,8 +1,9 @@
 import UIKit
 class InfoView: UIView {
+  var feed: FeedData?
   private lazy var avatarImageView: UIImageView = {
     let image = UIImageView()
-    image.image = UIImage(named: Image.avatar)
+    image.image = nil
     image.contentMode = .scaleAspectFill
     image.layer.cornerRadius = 22
     image.layer.masksToBounds = false
@@ -14,7 +15,6 @@ class InfoView: UIView {
   }()
   private lazy var nameLabel: UILabel = {
     let name = UILabel()
-    name.text = Info.name
     name.textAlignment = .left
     name.textColor = .white
     name.font = UIFont(name: Font.lexendSemiBoldFont, size: 16.0)
@@ -51,14 +51,14 @@ class InfoView: UIView {
     status.text = Info.status
     status.textAlignment = .left
     status.textColor = .white
-    status.numberOfLines = 2
+    status.numberOfLines = 3
     status.font = UIFont(name: Font.lexendRegularFont, size: 14.0)
     status.translatesAutoresizingMaskIntoConstraints = false
     return status
   }()
   private lazy var hagtagLabel: UILabel = {
     let hagtag = UILabel()
-    hagtag.text = Info.hagtag
+    hagtag.text = feed?.content
     hagtag.textAlignment = .left
     hagtag.textColor = .white
     hagtag.font = UIFont(name: Font.lexendRegularFont, size: 10.0)
@@ -81,7 +81,7 @@ extension InfoView {
   private func setupInfo() {
     backgroundColor = .clear
     setupView()
-    setupConstants()
+    setupConstaints()
   }
   private func setupView(){
     addSubviews(avatarImageView,
@@ -92,7 +92,7 @@ extension InfoView {
                 statusLabel,
                 hagtagLabel)
   }
-  private func setupConstants(){
+  private func setupConstaints(){
     NSLayoutConstraint.activate([
       avatarImageView.topAnchor.constraint(equalTo: self.topAnchor, constant: 10),
       avatarImageView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 10),
@@ -142,5 +142,15 @@ extension InfoView {
   @objc private func buttonFollow(_ sender: UIButton) {
     followButton.isHidden = true
     print(Button.follow)
+  }
+}
+extension InfoView {
+  public func getInfo(with model: FeedData){
+    nameLabel.text = model.author.userName
+    let avatar = URL(string: model.author.avatar)!
+    avatarImageView.loadImage(at: avatar)
+    famousImageView.isHidden = model.author.isVerified
+    followButton.isHidden = model.isFollow
+    statusLabel.text = model.content
   }
 }

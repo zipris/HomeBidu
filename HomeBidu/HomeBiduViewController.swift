@@ -2,71 +2,34 @@ import UIKit
 
 class HomeBiduViewController: UIViewController {
   @IBOutlet weak var tableView: UITableView!
-
-  private lazy var models = [UserModels]()
-  private let dataFilePath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first?.appendingPathComponent(File.plist)
+  var feed = [FeedData]()
+  let api = ApiService()
 }
 
 //MARK: - Life Cycle
 extension HomeBiduViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
-//    models.append(UserModels.init(name: "1", active: "2", status: "3", hagtag: "4", imageName: "image_1"))
-//    models.append(UserModels.init(name: "1", active: "2", status: "3", hagtag: "4", imageName: "image_2"))
-//    models.append(UserModels.init(name: "1", active: "2", status: "3", hagtag: "4", imageName: "image_3"))
-//    models.append(UserModels.init(name: "1", active: "2", status: "3", hagtag: "4", imageName: "image_4"))
-//    models.append(UserModels.init(name: "1", active: "2", status: "3", hagtag: "4", imageName: "image_5"))
-//    saveItems()
+    getData()
     rigisterTableCell()
-  }
-}
-
-//MARK: - Help Methods
-extension HomeBiduViewController {
-  private func saveItems() {
-    let encoder = PropertyListEncoder()
-    do {
-      let data = try encoder.encode(models)
-      try data.write(to: self.dataFilePath!)
-    } catch {
-      print(Notification.errorData)
-    }
-    self.tableView.reloadData()
-  }
-  private func loadItems() {
-    if let data = try? Data(contentsOf: dataFilePath!) {
-      let decoder = PropertyListDecoder()
-      do {
-        models = try decoder.decode([UserModels].self, from: data)
-      } catch {
-        print(Notification.errorData + "\(error)")
-      }
-    }
-  }
-  private func rigisterTableCell() {
-    loadItems()
-    tableView.register(HomeTableCell.getNib(), forCellReuseIdentifier: HomeTableCell.getNibName())
-    tableView.delegate = self
-    tableView.dataSource = self
   }
 }
 
 //MARK: - TableViewDataSource
 extension HomeBiduViewController: UITableViewDataSource {
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return models.count
-  }
-  func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-    return 10
-  }
-  func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-    let headerView = UIView()
-    headerView.backgroundColor = .clear
-    return headerView
+    if feed.count != 0 {
+      return feed.count
+    }
+    return 0
   }
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    let cell = tableView.dequeueReusableCell(withIdentifier: HomeTableCell.getNibName(), for: indexPath) as! HomeTableCell
-    cell.configure(with: models)
+    let cell = tableView.dequeueReusableCell(withIdentifier: HomeTableCell.getNibName(),
+                                             for: indexPath) as! HomeTableCell
+    let row = feed[indexPath.row]
+    cell.getTableCell(with: row)
+    cell.infoView.getInfo(with: row)
+    cell.interactiveView.getInteractive(with: row)
     return cell
   }
 }
@@ -74,10 +37,36 @@ extension HomeBiduViewController: UITableViewDataSource {
 //MARK: - TableViewDelegate
 extension HomeBiduViewController: UITableViewDelegate {
   func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-    return tableView.frame.size.height * 0.8
+    return tableView.frame.size.height * CGFloat(sizeIphone)
   }
 }
 
 //MARK: - Protocol BaseCell
 extension UITableViewCell: BaseCellProtocol {}
 
+//MARK: - Private
+//MARK: - Help Methods
+extension HomeBiduViewController {
+  private func rigisterTableCell() {
+    tableView.register(HomeTableCell.getNib(), forCellReuseIdentifier: HomeTableCell.getNibName())
+    tableView.delegate = self
+    tableView.dataSource = self
+  }
+}
+
+//MARK: - Get Data Api
+extension HomeBiduViewController {
+  private func getData () {
+    api.getFeedHomeData{ [weak self](results) in
+      switch results {
+      case .success(let listOf):
+        self?.feed = listOf.filter{$0.fileImage!.count > 0}
+      case .failure(let error):
+        print(error.localizedDescription)
+      }
+      DispatchQueue.main.async {
+        self?.tableView.reloadData()
+      }
+    }
+  }
+}
