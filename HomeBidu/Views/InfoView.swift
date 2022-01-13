@@ -94,26 +94,26 @@ extension InfoView {
   }
   private func setupConstaints(){
     NSLayoutConstraint.activate([
-      avatarImageView.topAnchor.constraint(equalTo: self.topAnchor, constant: 10),
-      avatarImageView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 10),
+      avatarImageView.topAnchor.constraint(equalTo: topAnchor, constant: 10),
+      avatarImageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
       avatarImageView.widthAnchor.constraint(equalToConstant: 44),
       avatarImageView.heightAnchor.constraint(equalToConstant: 44)
     ])
 
     NSLayoutConstraint.activate([
-      nameLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 15),
+      nameLabel.topAnchor.constraint(equalTo: topAnchor, constant: 15),
       nameLabel.leadingAnchor.constraint(equalTo: avatarImageView.trailingAnchor, constant: 10)
     ])
 
     NSLayoutConstraint.activate([
-      famousImageView.topAnchor.constraint(equalTo: self.topAnchor, constant: 20),
+      famousImageView.topAnchor.constraint(equalTo: topAnchor, constant: 20),
       famousImageView.leadingAnchor.constraint(equalTo: nameLabel.trailingAnchor, constant: 5),
     ])
 
     NSLayoutConstraint.activate([
       activeLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor),
       activeLabel.leadingAnchor.constraint(equalTo: avatarImageView.trailingAnchor, constant: 10),
-      activeLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor)
+      activeLabel.trailingAnchor.constraint(equalTo: trailingAnchor)
     ])
 
     NSLayoutConstraint.activate([
@@ -124,15 +124,15 @@ extension InfoView {
 
     NSLayoutConstraint.activate([
       statusLabel.topAnchor.constraint(equalTo: followButton.bottomAnchor, constant: 5),
-      statusLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 10),
-      statusLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor)
+      statusLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
+      statusLabel.trailingAnchor.constraint(equalTo: trailingAnchor)
     ])
     
     NSLayoutConstraint.activate([
       hagtagLabel.topAnchor.constraint(equalTo: statusLabel.bottomAnchor),
-      hagtagLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 10),
-      hagtagLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-      hagtagLabel.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: 5)
+      hagtagLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
+      hagtagLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
+      hagtagLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: 5)
     ])
   }
 }

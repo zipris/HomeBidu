@@ -1,9 +1,5 @@
 import Foundation
-enum NetworkManagerError: Error {
-  case badResponse(URLResponse?)
-  case badData
-  case badLocalUrl
-}
+
 class ApiService {
   private var dataTask: URLSessionDataTask?
   private var images = NSCache<NSString, NSData>()
@@ -19,7 +15,6 @@ class ApiService {
       }
       guard let response = resquonse as? HTTPURLResponse else {return}
       print(response.statusCode)
-      
       guard let data = data else {return}
       do {
         let jsonData = try JSONDecoder().decode(FeedModel.self, from: data)
@@ -31,6 +26,4 @@ class ApiService {
     }
     dataTask?.resume()
   }
-  
 }
-

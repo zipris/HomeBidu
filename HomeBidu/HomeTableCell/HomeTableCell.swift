@@ -33,8 +33,9 @@ extension HomeTableCell: UICollectionViewDataSource {
     return 0
   }
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-    let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HomeCollectionCell.getNibName(), for: indexPath) as! HomeCollectionCell
-    cell.getCollectionCell(with: (self.img?[indexPath.row])!)
+    let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HomeCollectionCell.getNibName(),
+                                                  for: indexPath) as! HomeCollectionCell
+    cell.getCollectionCell(with: (img?[indexPath.row])!)
     return cell
     
   }
@@ -48,11 +49,9 @@ extension UICollectionView: BaseCellProtocol {}
 //MARK: - Rigister CollectionCell
 extension HomeTableCell {
   private func rigisterCollectionCell() {
-    let flow = UICollectionViewFlowLayout()
-    flow.itemSize = CGSize(width: frame.width, height: frame.height)
-    collectionView.register(HomeCollectionCell.getNib(), forCellWithReuseIdentifier: HomeCollectionCell.getNibName())
+    collectionView.register(HomeCollectionCell.getNib(),
+                            forCellWithReuseIdentifier: HomeCollectionCell.getNibName())
     collectionView.delegate = self
     collectionView.dataSource = self
   }
 }
-

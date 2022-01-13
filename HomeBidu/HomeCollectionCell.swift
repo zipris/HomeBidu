@@ -1,7 +1,6 @@
 import UIKit
 
 class HomeCollectionCell: UICollectionViewCell {
-  
   @IBOutlet weak var imageView: UIImageView!
 }
 
@@ -24,4 +23,3 @@ extension HomeCollectionCell {
 
 //MARK: - Protocol BaseCell
 extension HomeCollectionCell: BaseCellProtocol {}
-

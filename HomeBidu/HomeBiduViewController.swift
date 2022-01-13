@@ -57,7 +57,7 @@ extension HomeBiduViewController {
 //MARK: - Get Data Api
 extension HomeBiduViewController {
   private func getData () {
-    api.getFeedHomeData{ [weak self](results) in
+    api.getFeedHomeData{ [weak self] (results) in
       switch results {
       case .success(let listOf):
         self?.feed = listOf.filter{$0.fileImage!.count > 0}

@@ -1,13 +1,11 @@
 import UIKit
 
 class InteractiveView: UIView {
-  private var feed: FeedData?
   private var likeCount: Int?
   private lazy var likeButton: UIButton = {
     let likeButton = UIButton()
     likeButton.setImage(UIImage(named: Image.heart), for: .normal)
     likeButton.setImage(UIImage(named: Image.redHeart), for: .selected)
-    likeButton.isSelected = feed?.isLike ?? false
     likeButton.addTarget(self,
                          action: #selector(selectedLike),
                          for: .touchUpInside)
@@ -37,7 +35,6 @@ class InteractiveView: UIView {
   private lazy var saveButton: UIButton = {
     let saveButton = UIButton()
     saveButton.setImage(UIImage(named: Image.save), for: .normal)
-    saveButton.isSelected = feed?.isBookmark ?? false
     saveButton.addTarget(self,
                          action: #selector(selectedSave),
                          for: .touchUpInside)
@@ -56,7 +53,6 @@ class InteractiveView: UIView {
   }()
   private lazy var countLikeLabel: UILabel = {
     let countLikeLabel = UILabel()
-    countLikeLabel.text = String(feed?.likeCount ?? 0)
     countLikeLabel.textAlignment = .center
     countLikeLabel.textColor = .white
     countLikeLabel.font = UIFont(name: Font.lexendRegularFont, size: 13.0)
@@ -65,7 +61,6 @@ class InteractiveView: UIView {
   }()
   private lazy var countCmtLabel: UILabel = {
     let countCmtLabel = UILabel()
-    countCmtLabel.text = String(feed?.numberOfComments ?? 0)
     countCmtLabel.textAlignment = .center
     countCmtLabel.textColor = .white
     countCmtLabel.font = UIFont(name: Font.lexendRegularFont, size: 13.0)
@@ -90,11 +85,11 @@ extension InteractiveView {
     setupConstaints()
   }
   private func setupView() {
-    self.layer.cornerRadius = self.frame.size.width / 2.5
-    self.clipsToBounds = true
-    self.layer.maskedCorners = [.layerMinXMaxYCorner,
+    layer.cornerRadius = frame.size.width / 2.5
+    clipsToBounds = true
+    layer.maskedCorners = [.layerMinXMaxYCorner,
                                 .layerMinXMinYCorner]
-    self.backgroundColor = UIColor(white: 1.0, alpha: 0.3)
+    backgroundColor = UIColor(white: 1.0, alpha: 0.3)
     addSubviews(likeButton,
                 countLikeLabel,
                 cmtButton,
@@ -105,61 +100,61 @@ extension InteractiveView {
   }
   private func setupConstaints() {
     NSLayoutConstraint.activate([
-      likeButton.topAnchor.constraint(equalTo: self.topAnchor, constant: 10),
-      likeButton.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-      likeButton.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-      likeButton.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 1.0),
-      likeButton.heightAnchor.constraint(equalTo: self.heightAnchor, multiplier: 0.15)
+      likeButton.topAnchor.constraint(equalTo: topAnchor, constant: 10),
+      likeButton.leadingAnchor.constraint(equalTo: leadingAnchor),
+      likeButton.trailingAnchor.constraint(equalTo: trailingAnchor),
+      likeButton.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 1.0),
+      likeButton.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.15)
     ])
 
     NSLayoutConstraint.activate([
       countLikeLabel.topAnchor.constraint(equalTo: likeButton.bottomAnchor, constant: -10),
-      countLikeLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-      countLikeLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-      countLikeLabel.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 1.0),
-      countLikeLabel.heightAnchor.constraint(equalTo: self.heightAnchor, multiplier: 0.05)
+      countLikeLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
+      countLikeLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
+      countLikeLabel.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 1.0),
+      countLikeLabel.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.05)
     ])
 
     NSLayoutConstraint.activate([
       cmtButton.topAnchor.constraint(equalTo: countLikeLabel.bottomAnchor),
-      cmtButton.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-      cmtButton.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-      cmtButton.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 1.0),
-      cmtButton.heightAnchor.constraint(equalTo: self.heightAnchor, multiplier: 0.15)
+      cmtButton.leadingAnchor.constraint(equalTo: leadingAnchor),
+      cmtButton.trailingAnchor.constraint(equalTo: trailingAnchor),
+      cmtButton.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 1.0),
+      cmtButton.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.15)
     ])
 
     NSLayoutConstraint.activate([
       countCmtLabel.topAnchor.constraint(equalTo: cmtButton.bottomAnchor, constant: -10),
-      countCmtLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-      countCmtLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-      countCmtLabel.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 1.0),
-      countCmtLabel.heightAnchor.constraint(equalTo: self.heightAnchor, multiplier: 0.05),
+      countCmtLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
+      countCmtLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
+      countCmtLabel.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 1.0),
+      countCmtLabel.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.05),
 
     ])
 
     NSLayoutConstraint.activate([
       shareButton.topAnchor.constraint(equalTo: countCmtLabel.bottomAnchor),
-      shareButton.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-      shareButton.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-      shareButton.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 1.0),
-      shareButton.heightAnchor.constraint(equalTo: self.heightAnchor, multiplier: 0.2)
+      shareButton.leadingAnchor.constraint(equalTo: leadingAnchor),
+      shareButton.trailingAnchor.constraint(equalTo: trailingAnchor),
+      shareButton.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 1.0),
+      shareButton.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.2)
     ])
 
     NSLayoutConstraint.activate([
       saveButton.topAnchor.constraint(equalTo: shareButton.bottomAnchor),
-      saveButton.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-      saveButton.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-      saveButton.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 1.0),
-      saveButton.heightAnchor.constraint(equalTo: self.heightAnchor, multiplier: 0.2)
+      saveButton.leadingAnchor.constraint(equalTo: leadingAnchor),
+      saveButton.trailingAnchor.constraint(equalTo: trailingAnchor),
+      saveButton.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 1.0),
+      saveButton.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.2)
     ])
 
     NSLayoutConstraint.activate([
       moreButon.topAnchor.constraint(equalTo: saveButton.bottomAnchor),
-      moreButon.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-      moreButon.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-      moreButon.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 1.0),
-      moreButon.heightAnchor.constraint(equalTo: self.heightAnchor, multiplier: 0.2),
-      moreButon.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -10)
+      moreButon.leadingAnchor.constraint(equalTo: leadingAnchor),
+      moreButon.trailingAnchor.constraint(equalTo: trailingAnchor),
+      moreButon.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 1.0),
+      moreButon.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.2),
+      moreButon.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -10)
     ])
   }
 }
@@ -196,5 +191,7 @@ extension InteractiveView {
     countLikeLabel.text = String(interactive.likeCount)
     likeCount = interactive.likeCount
     likeButton.isSelected = interactive.isLike
+    countCmtLabel.text = String(interactive.numberOfComments)
+    saveButton.isSelected = interactive.isBookmark
   }
 }

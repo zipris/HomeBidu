@@ -18,13 +18,13 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" restorationIdentifier="HomeTableCell" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="30V-V3-gSR">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="576.5"/>
+                        <rect key="frame" x="0.0" y="10" width="414" height="566.5"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="20" minimumInteritemSpacing="20" id="oN3-p3-lnL">
+                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="oN3-p3-lnL">
                             <size key="itemSize" width="414" height="556"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="10"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                     </collectionView>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tFe-nt-Kip" customClass="InteractiveView" customModule="HomeBidu" customModuleProvider="target">
@@ -46,7 +46,7 @@
                 <constraints>
                     <constraint firstAttribute="bottom" secondItem="ucm-z1-Tl8" secondAttribute="bottom" id="8IS-WV-jpi"/>
                     <constraint firstAttribute="bottom" secondItem="30V-V3-gSR" secondAttribute="bottom" id="IPA-AL-QO9"/>
-                    <constraint firstItem="30V-V3-gSR" firstAttribute="top" secondItem="8BW-2G-htd" secondAttribute="top" id="Iqk-Kb-Zoc"/>
+                    <constraint firstItem="30V-V3-gSR" firstAttribute="top" secondItem="8BW-2G-htd" secondAttribute="top" constant="10" id="Iqk-Kb-Zoc"/>
                     <constraint firstItem="tFe-nt-Kip" firstAttribute="centerY" secondItem="8BW-2G-htd" secondAttribute="centerY" id="Qfu-FJ-hSL"/>
                     <constraint firstItem="ucm-z1-Tl8" firstAttribute="leading" secondItem="8BW-2G-htd" secondAttribute="leading" id="Vvd-tD-4uF"/>
                     <constraint firstAttribute="trailing" secondItem="ucm-z1-Tl8" secondAttribute="trailing" id="aTC-cx-W7R"/>
