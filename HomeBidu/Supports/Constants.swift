@@ -32,6 +32,8 @@ struct Button {
   static let follow = "Followed"
 }
 struct Notification {
+  static let response = "Status code: "
+  static let error = "Error: "
   static let available = "available data"
   static let downloading = "downloading"
   static let find = "Not Found"

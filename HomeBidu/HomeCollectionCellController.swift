@@ -15,6 +15,8 @@ extension HomeCollectionCell {
 extension HomeCollectionCell: FetchableImage {
   public func getCollectionCell(with file: File) {
     imageView.image = UIImage(named: Image.background)
+    imageView.contentMode = .scaleAspectFill
+
     guard let url = file.url else {return}
     fetchImage(from: url, options: nil) { (avatarData) in
       if let data = avatarData {
@@ -23,7 +25,6 @@ extension HomeCollectionCell: FetchableImage {
         }
       }
     }
-    imageView.contentMode = .scaleAspectFill
   }
 }
 
