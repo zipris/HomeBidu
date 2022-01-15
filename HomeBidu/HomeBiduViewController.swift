@@ -28,8 +28,8 @@ extension HomeBiduViewController: UITableViewDataSource {
                                              for: indexPath) as! HomeTableCell
     let row = feed[indexPath.row]
     cell.getTableCell(with: row)
-    cell.infoView.getInfo(with: row)
-    cell.interactiveView.getInteractive(with: row)
+    cell.infoView?.getInfo(with: row)
+    cell.interactiveView?.getInteractive(with: row)
     return cell
   }
 }

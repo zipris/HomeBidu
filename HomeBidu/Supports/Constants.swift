@@ -14,6 +14,7 @@ struct Url {
   ]
 }
 struct Image {
+  static let background = "background"
   static let heart = "tim"
   static let redHeart = "timdo"
   static let avatar = "image_1"
@@ -31,6 +32,8 @@ struct Button {
   static let follow = "Followed"
 }
 struct Notification {
+  static let available = "available data"
+  static let downloading = "downloading"
   static let find = "Not Found"
   static let errorData = "Error encoding item array"
   static let fatalError = "init(coder:) has not been implemented"

@@ -12,11 +12,17 @@ extension HomeCollectionCell {
 }
 
 //MARK: - Help HomeColletionCell
-extension HomeCollectionCell {
+extension HomeCollectionCell: FetchableImage {
   public func getCollectionCell(with file: File) {
-    imageView.image = nil
-    let url = URL(string: file.url!)
-    imageView.loadImage(at: url!)
+    imageView.image = UIImage(named: Image.background)
+    guard let url = file.url else {return}
+    fetchImage(from: url, options: nil) { (avatarData) in
+      if let data = avatarData {
+        DispatchQueue.main.async {
+          self.imageView.image = UIImage(data: data)
+        }
+      }
+    }
     imageView.contentMode = .scaleAspectFill
   }
 }

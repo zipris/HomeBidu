@@ -1,6 +1,7 @@
 import UIKit
 
 class InteractiveView: UIView {
+  public var open: Bool?
   private var likeCount: Int?
   private lazy var likeButton: UIButton = {
     let likeButton = UIButton()
@@ -170,11 +171,6 @@ extension InteractiveView {
     }
   }
   @objc private func selectedCmt(_ sender: UIButton) {
-//    if !sender.isSelected {
-//      countCmtLabel.text = String(countCmt + 1)
-//    } else {
-//      countCmtLabel.text = String(countCmt)
-//    }
   }
   @objc private func selectedShared(_ sender: UIButton) {
     print(Button.shared)
@@ -195,3 +191,4 @@ extension InteractiveView {
     saveButton.isSelected = interactive.isBookmark
   }
 }
+

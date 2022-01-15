@@ -2,7 +2,6 @@ import Foundation
 
 class ApiService {
   private var dataTask: URLSessionDataTask?
-  private var images = NSCache<NSString, NSData>()
   func getFeedHomeData(onCompletion: @escaping (Result<[FeedData], Error>) -> Void) {
     let feedURL = Url.url
     guard let url = URL(string: feedURL) else {return}

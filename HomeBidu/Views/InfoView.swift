@@ -3,7 +3,7 @@ class InfoView: UIView {
   var feed: FeedData?
   private lazy var avatarImageView: UIImageView = {
     let image = UIImageView()
-    image.image = nil
+    image.image = UIImage(named: Image.background)
     image.contentMode = .scaleAspectFill
     image.layer.cornerRadius = 22
     image.layer.masksToBounds = false
@@ -125,7 +125,7 @@ extension InfoView {
     NSLayoutConstraint.activate([
       statusLabel.topAnchor.constraint(equalTo: followButton.bottomAnchor, constant: 5),
       statusLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
-      statusLabel.trailingAnchor.constraint(equalTo: trailingAnchor)
+      statusLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -40)
     ])
     
     NSLayoutConstraint.activate([
@@ -144,13 +144,18 @@ extension InfoView {
     print(Button.follow)
   }
 }
-extension InfoView {
+extension InfoView: FetchableImage {
   public func getInfo(with model: FeedData){
     nameLabel.text = model.author.userName
-    let avatar = URL(string: model.author.avatar)!
-    avatarImageView.loadImage(at: avatar)
     famousImageView.isHidden = model.author.isVerified
     followButton.isHidden = model.isFollow
     statusLabel.text = model.content
+    fetchImage(from: model.author.avatar, options: nil) { (avatarData) in
+      if let data = avatarData {
+        DispatchQueue.main.async {
+          self.avatarImageView.image = UIImage(data: data)
+        }
+      }
+    }
   }
 }
