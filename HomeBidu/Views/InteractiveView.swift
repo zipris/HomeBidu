@@ -68,7 +68,7 @@ class InteractiveView: UIView {
     countCmtLabel.translatesAutoresizingMaskIntoConstraints = false
     return countCmtLabel
   }()
-
+  
   override init(frame: CGRect) {
     super.init(frame: frame)
     setupTab()
@@ -89,7 +89,7 @@ extension InteractiveView {
     layer.cornerRadius = frame.size.width / 2.5
     clipsToBounds = true
     layer.maskedCorners = [.layerMinXMaxYCorner,
-                                .layerMinXMinYCorner]
+                           .layerMinXMinYCorner]
     backgroundColor = UIColor(white: 1.0, alpha: 0.3)
     addSubviews(likeButton,
                 countLikeLabel,
@@ -107,7 +107,7 @@ extension InteractiveView {
       likeButton.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 1.0),
       likeButton.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.15)
     ])
-
+    
     NSLayoutConstraint.activate([
       countLikeLabel.topAnchor.constraint(equalTo: likeButton.bottomAnchor, constant: -10),
       countLikeLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
@@ -115,7 +115,7 @@ extension InteractiveView {
       countLikeLabel.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 1.0),
       countLikeLabel.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.05)
     ])
-
+    
     NSLayoutConstraint.activate([
       cmtButton.topAnchor.constraint(equalTo: countLikeLabel.bottomAnchor),
       cmtButton.leadingAnchor.constraint(equalTo: leadingAnchor),
@@ -123,16 +123,16 @@ extension InteractiveView {
       cmtButton.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 1.0),
       cmtButton.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.15)
     ])
-
+    
     NSLayoutConstraint.activate([
       countCmtLabel.topAnchor.constraint(equalTo: cmtButton.bottomAnchor, constant: -10),
       countCmtLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
       countCmtLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
       countCmtLabel.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 1.0),
       countCmtLabel.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.05),
-
+      
     ])
-
+    
     NSLayoutConstraint.activate([
       shareButton.topAnchor.constraint(equalTo: countCmtLabel.bottomAnchor),
       shareButton.leadingAnchor.constraint(equalTo: leadingAnchor),
@@ -140,7 +140,7 @@ extension InteractiveView {
       shareButton.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 1.0),
       shareButton.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.2)
     ])
-
+    
     NSLayoutConstraint.activate([
       saveButton.topAnchor.constraint(equalTo: shareButton.bottomAnchor),
       saveButton.leadingAnchor.constraint(equalTo: leadingAnchor),
@@ -148,7 +148,7 @@ extension InteractiveView {
       saveButton.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 1.0),
       saveButton.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.2)
     ])
-
+    
     NSLayoutConstraint.activate([
       moreButon.topAnchor.constraint(equalTo: saveButton.bottomAnchor),
       moreButon.leadingAnchor.constraint(equalTo: leadingAnchor),

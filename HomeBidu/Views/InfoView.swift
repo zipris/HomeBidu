@@ -65,7 +65,7 @@ class InfoView: UIView {
     hagtag.translatesAutoresizingMaskIntoConstraints = false
     return hagtag
   }()
-
+  
   override init(frame: CGRect) {
     super.init(frame: frame)
     setupInfo()
@@ -99,29 +99,29 @@ extension InfoView {
       avatarImageView.widthAnchor.constraint(equalToConstant: 44),
       avatarImageView.heightAnchor.constraint(equalToConstant: 44)
     ])
-
+    
     NSLayoutConstraint.activate([
       nameLabel.topAnchor.constraint(equalTo: topAnchor, constant: 15),
       nameLabel.leadingAnchor.constraint(equalTo: avatarImageView.trailingAnchor, constant: 10)
     ])
-
+    
     NSLayoutConstraint.activate([
       famousImageView.topAnchor.constraint(equalTo: topAnchor, constant: 20),
       famousImageView.leadingAnchor.constraint(equalTo: nameLabel.trailingAnchor, constant: 5),
     ])
-
+    
     NSLayoutConstraint.activate([
       activeLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor),
       activeLabel.leadingAnchor.constraint(equalTo: avatarImageView.trailingAnchor, constant: 10),
       activeLabel.trailingAnchor.constraint(equalTo: trailingAnchor)
     ])
-
+    
     NSLayoutConstraint.activate([
       followButton.topAnchor.constraint(equalTo: avatarImageView.bottomAnchor, constant: -20),
       followButton.leadingAnchor.constraint(equalTo: avatarImageView.trailingAnchor, constant: -20),
       followButton.trailingAnchor.constraint(equalTo: activeLabel.leadingAnchor)
     ])
-
+    
     NSLayoutConstraint.activate([
       statusLabel.topAnchor.constraint(equalTo: followButton.bottomAnchor, constant: 5),
       statusLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),

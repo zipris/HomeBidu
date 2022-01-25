@@ -5,7 +5,7 @@ enum Route {
   var object: String {
     switch self {
     case .apiStaging:
-    return "/api-Staging.bidu.com.vn"
+      return "/api-Staging.bidu.com.vn"
     }
   }
 }

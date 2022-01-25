@@ -50,7 +50,7 @@ extension UICollectionView: BaseCellProtocol {}
 extension HomeTableCell {
   private func rigisterCollectionCell() {
     collectionView?.register(HomeCollectionCell.getNib(),
-                            forCellWithReuseIdentifier: HomeCollectionCell.getNibName())
+                             forCellWithReuseIdentifier: HomeCollectionCell.getNibName())
     collectionView?.delegate = self
     collectionView?.dataSource = self
   }

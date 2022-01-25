@@ -4,7 +4,7 @@ enum AppError: LocalizedError {
   case unkownError
   case invaliUrl
   case serverError(String)
-
+  
   var errorDescription: String? {
     switch self {
     case .errorDecoding:

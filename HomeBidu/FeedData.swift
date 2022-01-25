@@ -45,7 +45,7 @@ struct File: Codable {
   var thumbnail: String
   var order: Int?
   var url: String?
-
+  
 }
 
 struct Size: Codable {

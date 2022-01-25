@@ -4,7 +4,7 @@ struct NetWorkService {
   
   private init() {}
   
-//MARK: - Feed Data Request
+  //MARK: - Feed Data Request
   func feedDataRequest(completion: @escaping(Result<[FeedData], Error>) -> Void) {
     request(route: .apiStaging,
             version: .v1,
@@ -43,8 +43,8 @@ struct NetWorkService {
       }
     }.resume()
   }
-
-//MARK: - Handle Response
+  
+  //MARK: - Handle Response
   private func handleResponse<T: Codable> (result: Result<Data, Error>?,
                                            completion: (Result<T, Error>) -> Void) {
     guard let result = result else {
@@ -72,7 +72,7 @@ struct NetWorkService {
       completion(.failure(error))
     }
   }
-//MARK: - Created Request
+  //MARK: - Created Request
   /// This function helps us to generate a urlRequest
   /// - Parameters:
   ///   - route: the path the the resource in the backend
