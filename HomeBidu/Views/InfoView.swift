@@ -3,7 +3,7 @@ class InfoView: UIView {
   var feed: FeedData?
   private lazy var avatarImageView: UIImageView = {
     let image = UIImageView()
-    image.image = UIImage(named: Image.background)
+    image.image = UIImage(named: Image.Background)
     image.contentMode = .scaleAspectFill
     image.layer.cornerRadius = 22
     image.layer.masksToBounds = false
@@ -17,20 +17,20 @@ class InfoView: UIView {
     let name = UILabel()
     name.textAlignment = .left
     name.textColor = .white
-    name.font = UIFont(name: Font.lexendSemiBoldFont, size: 16.0)
+    name.font = UIFont(name: Font.LexendSemiBoldFont, size: 16.0)
     name.translatesAutoresizingMaskIntoConstraints = false
     return name
   }()
   private lazy var famousImageView: UIImageView = {
     let famous = UIImageView()
-    famous.image = UIImage(named: Image.famous)
+    famous.image = UIImage(named: Image.Famous)
     famous.contentMode = .scaleAspectFill
     famous.translatesAutoresizingMaskIntoConstraints = false
     return famous
   }()
   private lazy var followButton: UIButton = {
     let follow = UIButton()
-    follow.setImage(UIImage(named: Image.follow), for: .normal)
+    follow.setImage(UIImage(named: Image.Follow), for: .normal)
     follow.addTarget(self,
                      action: #selector(buttonFollow),
                      for: .touchUpInside)
@@ -39,7 +39,7 @@ class InfoView: UIView {
   }()
   private lazy var activeLabel: UILabel = {
     let active = UILabel()
-    active.text = Info.active
+    active.text = Info.Active
     active.textAlignment = .left
     active.textColor = .white
     active.font = UIFont(name: Font.JosefinSansRegularFont, size: 13.0)
@@ -48,11 +48,10 @@ class InfoView: UIView {
   }()
   private lazy var statusLabel: UILabel = {
     let status = UILabel()
-    status.text = Info.status
     status.textAlignment = .left
     status.textColor = .white
     status.numberOfLines = 3
-    status.font = UIFont(name: Font.lexendRegularFont, size: 14.0)
+    status.font = UIFont(name: Font.LexendRegularFont, size: 14.0)
     status.translatesAutoresizingMaskIntoConstraints = false
     return status
   }()
@@ -61,7 +60,7 @@ class InfoView: UIView {
     hagtag.text = feed?.content
     hagtag.textAlignment = .left
     hagtag.textColor = .white
-    hagtag.font = UIFont(name: Font.lexendRegularFont, size: 10.0)
+    hagtag.font = UIFont(name: Font.LexendRegularFont, size: 10.0)
     hagtag.translatesAutoresizingMaskIntoConstraints = false
     return hagtag
   }()
@@ -141,7 +140,7 @@ extension InfoView {
 extension InfoView {
   @objc private func buttonFollow(_ sender: UIButton) {
     followButton.isHidden = true
-    print(Button.follow)
+    print(Button.Follow)
   }
 }
 extension InfoView: FetchableImage {

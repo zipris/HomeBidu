@@ -4,8 +4,7 @@ class HomeBiduViewController: UIViewController {
   @IBOutlet weak var tableView: UITableView!
   var feed = [FeedData]()
 }
-
-//MARK: - Life Cycle
+////MARK: - Life Cycle
 extension HomeBiduViewController {
   override func viewDidLoad() {
     super.viewDidLoad()

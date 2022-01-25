@@ -1,6 +1,6 @@
 import Foundation
 enum Route {
-  static let baseUrl = "https:/"
+  static let BaseUrl = "https:/"
   case apiStaging
   var object: String {
     switch self {

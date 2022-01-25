@@ -1,50 +1,70 @@
 import Foundation
+import Network
+
 struct NetWorkService {
   static let shared = NetWorkService()
   
-  private init() {}
+  let monitor = NWPathMonitor()
+  let queue = DispatchQueue(label: "Internet Connection Monitor")
   
-  //MARK: - Feed Data Request
+  private init() {}
+}
+//MARK: - Feed Data Request
+extension NetWorkService {
   func feedDataRequest(completion: @escaping(Result<[FeedData], Error>) -> Void) {
     request(route: .apiStaging,
             version: .v1,
             description: .list,
             method: .get,
-            parameters: ["categoryId": "ALL", "page": "1", "sort" : "recent"],
+            parameters: ["categoryId": "ALL",
+                         "page": "1",
+                         "sort" : "recent"],
             completion: completion)
   }
-  
-  //MARK: - Request
+}
+//MARK: - Generic Request
+extension NetWorkService {
   private func request<T: Codable>(route: Route,
                                    version: Version,
                                    description: Description,
                                    method: Method,
                                    parameters: [String: Any]? = nil,
                                    completion: @escaping(Result<T, Error>) -> Void) {
-    guard let request = createRequest(route: route,
-                                      version: version,
-                                      description: description,
-                                      method: method,
-                                      parameters: parameters)
-    else {
-      completion(.failure(AppError.unkownError))
-      return
+    // Check connection -> call data
+    monitor.pathUpdateHandler = { pathUpdateHandler in
+      if pathUpdateHandler.status == .satisfied {
+        print("Internet connection")
+        guard let request = createRequest(route: route,
+                                          version: version,
+                                          description: description,
+                                          method: method,
+                                          parameters: parameters)
+        else {
+          completion(.failure(AppError.unkownError))
+          return
+        }
+        URLSession.shared.dataTask(with: request) { data, response, error in
+          var result: Result<Data, Error>?
+          if let data = data {
+            result = .success(data)
+          } else if let error = error {
+            result = .failure(error)
+            print(error.localizedDescription)
+          }
+          DispatchQueue.main.async {
+            self.handleResponse(result: result, completion: completion)
+          }
+        }.resume()
+      } else {
+        print("No internet connection.")
+      }
     }
-    URLSession.shared.dataTask(with: request) { data, response, error in
-      var result: Result<Data, Error>?
-      if let data = data {
-        result = .success(data)
-      } else if let error = error {
-        result = .failure(error)
-        print(error.localizedDescription)
-      }
-      DispatchQueue.main.async {
-        self.handleResponse(result: result, completion: completion)
-      }
-    }.resume()
+    monitor.start(queue: queue)
   }
-  
-  //MARK: - Handle Response
+}
+
+//MARK: - Generic Handle Response
+extension NetWorkService {
   private func handleResponse<T: Codable> (result: Result<Data, Error>?,
                                            completion: (Result<T, Error>) -> Void) {
     guard let result = result else {
@@ -72,22 +92,25 @@ struct NetWorkService {
       completion(.failure(error))
     }
   }
-  //MARK: - Created Request
-  /// This function helps us to generate a urlRequest
-  /// - Parameters:
-  ///   - route: the path the the resource in the backend
-  ///   - method: type of request to be made
-  ///   - parameters: whatever extra information you need to pass to the backend
-  /// - Returns: URLRequest
+}
+
+//MARK: - Generic Created Request
+/// This function helps us to generate a urlRequest
+/// - Parameters:
+///   - route: the path the the resource in the backend
+///   - method: type of request to be made
+///   - parameters: whatever extra information you need to pass to the backend
+/// - Returns: URLRequest
+extension NetWorkService {
   private func createRequest(route: Route,
                              version: Version,
                              description: Description,
                              method: Method,
                              parameters: [String: Any]? = nil) -> URLRequest? {
-    let urlString = Route.baseUrl + route.object + version.version + description.description
+    let urlString = Route.BaseUrl + route.object + version.version + description.description
     guard let url = URL(string: urlString) else {return nil}
     var urlRequest = URLRequest(url: url)
-    urlRequest.allHTTPHeaderFields = Helper.headerFeed
+    urlRequest.allHTTPHeaderFields = Helper.HeaderFeed
     urlRequest.httpMethod = method.rawValue
     
     if let params = parameters {

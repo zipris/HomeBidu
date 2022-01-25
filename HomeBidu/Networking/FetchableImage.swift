@@ -50,17 +50,52 @@ struct FetchableImageHelper {
 
 //MARK: - Protocol Fetchable Image
 protocol FetchableImage {
-  func localFileURL(for imageURL: String?, options: FetchableImageOptions?) -> URL?
-  func fetchImage(from urlString: String?, options: FetchableImageOptions?,
+  func localFileURL(for imageURL: String?,
+                    options: FetchableImageOptions?) -> URL?
+  func fetchImage(from urlString: String?,
+                  options: FetchableImageOptions?,
                   completion: @escaping (_ imageData: Data?) -> Void)
-  func save(image data: Data, options: FetchableImageOptions) -> Bool
-  func deleteImage(using imageURL: String?,
-                   options: FetchableImageOptions?) -> Bool
+  func save(image data: Data,
+            options: FetchableImageOptions) -> Bool
+  func delete(using imageURL: String?,
+              options: FetchableImageOptions?) -> Bool
 }
 
-//MARK: - Extension Fetchable Image
+//MARK: - Fetchable Image
 extension FetchableImage {
-  func localFileURL(for imageURL: String?, options: FetchableImageOptions? = nil) -> URL? {
+  public func fetchImage(from urlString: String?,
+                         options: FetchableImageOptions? = nil,
+                         completion: @escaping (_ imageData: Data?) -> Void) {
+    DispatchQueue.global(qos: .background).async {
+      let opt = FetchableImageHelper.getOptions(options)
+      let localURL = self.localFileURL(for: urlString, options: options)
+      if opt.allowLocalStorage,
+         let localURL = localURL,
+         FileManager.default.fileExists(atPath: localURL.path) {
+        let loadedImageData = FetchableImageHelper.loadLocalImage(from: localURL)
+        print(Notification.Available)
+        completion(loadedImageData)
+      } else {
+        print(Notification.Downloading)
+        guard let urlString = urlString, let url = URL(string: urlString) else {
+          completion(nil)
+          return
+        }
+        FetchableImageHelper.downloadImage(from: url) { (imageData) in
+          if opt.allowLocalStorage,
+             let localURL = localURL {
+            try? imageData?.write(to: localURL)
+          }
+          completion(imageData)
+        }
+      }
+    }
+  }
+}
+//MARK: - Local File URL
+extension FetchableImage {
+  public func localFileURL(for imageURL: String?,
+                           options: FetchableImageOptions? = nil) -> URL? {
     let otp = FetchableImageHelper.getOptions(options)
     let targetDir = otp.storeInCachesDirectory ?
       FetchableImageHelper.cachesDirectoryURL : FetchableImageHelper.documentsDirectoryURL
@@ -77,38 +112,25 @@ extension FetchableImage {
     }
     return targetDir.appendingPathComponent(imageName)
   }
-  
-  func fetchImage(from urlString: String?,
-                  options: FetchableImageOptions? = nil,
-                  completion: @escaping (_ imageData: Data?) -> Void) {
-    DispatchQueue.global(qos: .background).async {
-      let opt = FetchableImageHelper.getOptions(options)
-      let localURL = self.localFileURL(for: urlString, options: options)
-      if opt.allowLocalStorage,
-         let localURL = localURL,
-         FileManager.default.fileExists(atPath: localURL.path) {
-        let loadedImageData = FetchableImageHelper.loadLocalImage(from: localURL)
-        print(Notification.available)
-        completion(loadedImageData)
-      } else {
-        print(Notification.downloading)
-        guard let urlString = urlString, let url = URL(string: urlString) else {
-          completion(nil)
-          return
-        }
-        
-        FetchableImageHelper.downloadImage(from: url) { (imageData) in
-          if opt.allowLocalStorage,
-             let localURL = localURL {
-            try? imageData?.write(to: localURL)
-          }
-          completion(imageData)
-        }
-      }
+}
+//MARK: - Save & Delete Image
+extension FetchableImage {
+  public func save(image data: Data,
+                   options: FetchableImageOptions) -> Bool {
+    guard let url = localFileURL(for: nil, options: options) else {
+      return false
+    }
+    do {
+      try data.write(to: url)
+      return true
+    } catch {
+      print(error.localizedDescription)
+      return false
     }
   }
   
-  func deleteImage(using imageURL: String?, options: FetchableImageOptions? = nil) -> Bool {
+  public func delete(using imageURL: String?,
+                     options: FetchableImageOptions? = nil) -> Bool {
     guard let localURL = localFileURL(for: imageURL,options: options),
           FileManager.default.fileExists(atPath: localURL.path) else {
       return false
@@ -121,18 +143,4 @@ extension FetchableImage {
       return false
     }
   }
-  
-  func save(image data: Data, options: FetchableImageOptions) -> Bool {
-    guard let url = localFileURL(for: nil, options: options) else {
-      return false
-    }
-    do {
-      try data.write(to: url)
-      return true
-    } catch {
-      print(error.localizedDescription)
-      return false
-    }
-  }
 }
-

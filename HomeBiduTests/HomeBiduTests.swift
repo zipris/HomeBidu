@@ -1,3 +1,10 @@
+//
+//  HomeBiduTests.swift
+//  HomeBiduTests
+//
+//  Created by Lê Kim Hoàng on 1/4/22.
+//
+
 import XCTest
 
 class HomeBiduTests: XCTestCase {

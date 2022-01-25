@@ -3,46 +3,45 @@ import Foundation
 let sizeIphone = 0.77
 
 struct Identifier {
-  static let homeIdentifier = "HomeCollectionCell"
+  static let HomeIdentifier = "HomeCollectionCell"
   static let tableIdentifier = "HomeTableCell"
 }
 struct Image {
-  static let background = "background"
-  static let heart = "tim"
-  static let redHeart = "timdo"
-  static let avatar = "image_1"
-  static let chat = "chat"
-  static let save = "save"
-  static let share = "share"
-  static let more = "more"
-  static let famous = "famous"
-  static let follow = "+"
+  static let Background = "background"
+  static let Heart = "tim"
+  static let RedHeart = "timdo"
+  static let Chat = "chat"
+  static let Save = "save"
+  static let Share = "share"
+  static let More = "more"
+  static let Famous = "famous"
+  static let Follow = "+"
 }
 struct Button {
-  static let shared = "Shared"
-  static let save = "Saved"
-  static let more = "More"
-  static let follow = "Followed"
+  static let Shared = "Shared"
+  static let Saved = "Saved"
+  static let More = "More"
+  static let Follow = "Followed"
 }
 struct Notification {
-  static let available = "available data"
-  static let downloading = "downloading"
-  static let find = "Not Found"
-  static let errorData = "Error encoding item array"
-  static let fatalError = "init(coder:) has not been implemented"
+  static let Available = "available data"
+  static let Downloading = "downloading"
+  static let Find = "Not Found"
+  static let ErrorData = "Error encoding item array"
+  static let FatalError = "init(coder:) has not been implemented"
 }
 struct Info {
-  static let name = "Hồ Phương Anh"
-  static let active = "12 phút trước"
-  static let status = """
+  static let Name = "Hồ Phương Anh"
+  static let Active = "12 phút trước"
+  static let Status = """
 Trước đây mỗi buổi sáng mở mắt dậy việc đầu
 tiên phải suy nghĩ "Mang gì đi làm"...Xem Thêm
 """
-  static let hagtag = "#Đi làm\t#Dạo phố\t#Phong Cách\t#Quần Tây"
+  static let Hagtag = "#Đi làm\t#Dạo phố\t#Phong Cách\t#Quần Tây"
 }
 struct Font {
-  static let lexendSemiBoldFont = "Lexend-SemiBold"
+  static let LexendSemiBoldFont = "Lexend-SemiBold"
   static let JosefinSansRegularFont = "JosefinSans-Regular"
-  static let lexendRegularFont = "Lexend-Regular"
+  static let LexendRegularFont = "Lexend-Regular"
 }
 

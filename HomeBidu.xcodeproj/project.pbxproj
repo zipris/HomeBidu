@@ -180,7 +180,6 @@
 		52519562277E15440079723C /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				5205C1C22791ECC000F0C322 /* FetchableImage.swift */,
 				520B6D7A2785407E00DEDAF4 /* FeedData.swift */,
 			);
 			name = Models;
@@ -231,6 +230,7 @@
 				5283AD7F279EB4150039CA98 /* Method.swift */,
 				5283AD84279FA3170039CA98 /* AppError.swift */,
 				5283ADA2279FD1F20039CA98 /* ApiResponse.swift */,
+				5205C1C22791ECC000F0C322 /* FetchableImage.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";

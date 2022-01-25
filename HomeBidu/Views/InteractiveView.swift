@@ -5,8 +5,8 @@ class InteractiveView: UIView {
   private var likeCount: Int?
   private lazy var likeButton: UIButton = {
     let likeButton = UIButton()
-    likeButton.setImage(UIImage(named: Image.heart), for: .normal)
-    likeButton.setImage(UIImage(named: Image.redHeart), for: .selected)
+    likeButton.setImage(UIImage(named: Image.Heart), for: .normal)
+    likeButton.setImage(UIImage(named: Image.RedHeart), for: .selected)
     likeButton.addTarget(self,
                          action: #selector(selectedLike),
                          for: .touchUpInside)
@@ -15,7 +15,7 @@ class InteractiveView: UIView {
   }()
   private lazy var cmtButton: UIButton = {
     let cmtButton = UIButton()
-    cmtButton.setImage(UIImage(named: Image.chat), for: .normal)
+    cmtButton.setImage(UIImage(named: Image.Chat), for: .normal)
     cmtButton.isSelected = false
     cmtButton.addTarget(self,
                         action: #selector(selectedCmt),
@@ -25,7 +25,7 @@ class InteractiveView: UIView {
   }()
   private lazy var shareButton: UIButton = {
     let shareButton = UIButton()
-    shareButton.setImage(UIImage(named: Image.share), for: .normal)
+    shareButton.setImage(UIImage(named: Image.Share), for: .normal)
     shareButton.isSelected = false
     shareButton.addTarget(self,
                           action: #selector(selectedShared),
@@ -35,7 +35,7 @@ class InteractiveView: UIView {
   }()
   private lazy var saveButton: UIButton = {
     let saveButton = UIButton()
-    saveButton.setImage(UIImage(named: Image.save), for: .normal)
+    saveButton.setImage(UIImage(named: Image.Save), for: .normal)
     saveButton.addTarget(self,
                          action: #selector(selectedSave),
                          for: .touchUpInside)
@@ -44,7 +44,7 @@ class InteractiveView: UIView {
   }()
   private lazy var moreButon: UIButton = {
     let moreButton = UIButton()
-    moreButton.setImage(UIImage(named: Image.more), for: .normal)
+    moreButton.setImage(UIImage(named: Image.More), for: .normal)
     moreButton.isSelected = false
     moreButton.addTarget(self,
                          action: #selector(selectedMore),
@@ -56,7 +56,7 @@ class InteractiveView: UIView {
     let countLikeLabel = UILabel()
     countLikeLabel.textAlignment = .center
     countLikeLabel.textColor = .white
-    countLikeLabel.font = UIFont(name: Font.lexendRegularFont, size: 13.0)
+    countLikeLabel.font = UIFont(name: Font.LexendRegularFont, size: 13.0)
     countLikeLabel.translatesAutoresizingMaskIntoConstraints = false
     return countLikeLabel
   }()
@@ -64,7 +64,7 @@ class InteractiveView: UIView {
     let countCmtLabel = UILabel()
     countCmtLabel.textAlignment = .center
     countCmtLabel.textColor = .white
-    countCmtLabel.font = UIFont(name: Font.lexendRegularFont, size: 13.0)
+    countCmtLabel.font = UIFont(name: Font.LexendRegularFont, size: 13.0)
     countCmtLabel.translatesAutoresizingMaskIntoConstraints = false
     return countCmtLabel
   }()
@@ -173,13 +173,13 @@ extension InteractiveView {
   @objc private func selectedCmt(_ sender: UIButton) {
   }
   @objc private func selectedShared(_ sender: UIButton) {
-    print(Button.shared)
+    print(Button.Shared)
   }
   @objc private func selectedSave(_ sender: UIButton) {
-    print(Button.save)
+    print(Button.Saved)
   }
   @objc private func selectedMore(_ sender: UIButton) {
-    print(Button.more)
+    print(Button.More)
   }
 }
 extension InteractiveView {
