@@ -1,10 +1,6 @@
 import Foundation
 import UIKit
-struct FeedModel: Codable {
-  let success: Bool
-  let message: String
-  var data: [FeedData]
-}
+
 struct FeedData: Codable {
   var _id: String
   var comments: [Comments]
@@ -84,3 +80,4 @@ struct BodyTypeIds: Codable {
   var _id: String?
   var bodyTypeName: String?
 }
+

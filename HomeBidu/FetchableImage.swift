@@ -81,11 +81,9 @@ extension FetchableImage {
   func fetchImage(from urlString: String?,
                   options: FetchableImageOptions? = nil,
                   completion: @escaping (_ imageData: Data?) -> Void) {
-
     DispatchQueue.global(qos: .background).async {
       let opt = FetchableImageHelper.getOptions(options)
       let localURL = self.localFileURL(for: urlString, options: options)
-
       if opt.allowLocalStorage,
          let localURL = localURL,
          FileManager.default.fileExists(atPath: localURL.path) {

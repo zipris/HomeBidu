@@ -8,8 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		5205C1C32791ECC000F0C322 /* FetchableImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5205C1C22791ECC000F0C322 /* FetchableImage.swift */; };
-		520B6D7B2785407E00DEDAF4 /* FeedModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 520B6D7A2785407E00DEDAF4 /* FeedModel.swift */; };
-		520B6DB8278584DF00DEDAF4 /* ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 520B6DB7278584DF00DEDAF4 /* ApiService.swift */; };
+		520B6D7B2785407E00DEDAF4 /* FeedData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 520B6D7A2785407E00DEDAF4 /* FeedData.swift */; };
 		5251954B277E150F0079723C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5251954A277E150F0079723C /* AppDelegate.swift */; };
 		5251954D277E150F0079723C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5251954C277E150F0079723C /* SceneDelegate.swift */; };
 		5251954F277E150F0079723C /* HomeBiduViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5251954E277E150F0079723C /* HomeBiduViewController.swift */; };
@@ -24,10 +23,16 @@
 		5251957B277E17180079723C /* HomeCollectionCellController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52519579277E17180079723C /* HomeCollectionCellController.swift */; };
 		5251957C277E17180079723C /* HomeCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5251957A277E17180079723C /* HomeCollectionCell.xib */; };
 		527275772783E4420053108A /* HomeBiduTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 527275762783E4420053108A /* HomeBiduTests.swift */; };
+		5283AD7B279EAD430039CA98 /* Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5283AD7A279EAD430039CA98 /* Route.swift */; };
+		5283AD80279EB4150039CA98 /* Method.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5283AD7F279EB4150039CA98 /* Method.swift */; };
+		5283AD85279FA3170039CA98 /* AppError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5283AD84279FA3170039CA98 /* AppError.swift */; };
+		5283AD92279FBEEF0039CA98 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5283AD91279FBEEF0039CA98 /* Helper.swift */; };
+		5283ADA3279FD1F20039CA98 /* ApiResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5283ADA2279FD1F20039CA98 /* ApiResponse.swift */; };
 		52B6C3C82781B00C004233A6 /* JosefinSans.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 52B6C3C72781B00C004233A6 /* JosefinSans.ttf */; };
 		52B6C3CC2781B025004233A6 /* Lexend.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 52B6C3CB2781B025004233A6 /* Lexend.ttf */; };
 		52B6C3D02781B14B004233A6 /* JosefinSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 52B6C3CF2781B14B004233A6 /* JosefinSans-Regular.ttf */; };
 		52CD43962783189A00319231 /* ExtensionUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52CD43952783189A00319231 /* ExtensionUI.swift */; };
+		52F6B90D279D4F680024679B /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F6B90C279D4F680024679B /* NetworkService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,8 +54,7 @@
 
 /* Begin PBXFileReference section */
 		5205C1C22791ECC000F0C322 /* FetchableImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchableImage.swift; sourceTree = "<group>"; };
-		520B6D7A2785407E00DEDAF4 /* FeedModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedModel.swift; sourceTree = "<group>"; };
-		520B6DB7278584DF00DEDAF4 /* ApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiService.swift; sourceTree = "<group>"; };
+		520B6D7A2785407E00DEDAF4 /* FeedData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedData.swift; sourceTree = "<group>"; };
 		52519547277E150F0079723C /* HomeBidu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HomeBidu.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5251954A277E150F0079723C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5251954C277E150F0079723C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -70,10 +74,16 @@
 		527275762783E4420053108A /* HomeBiduTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeBiduTests.swift; sourceTree = "<group>"; };
 		527275782783E4420053108A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		527275842783E5EB0053108A /* HomeBiduUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HomeBiduUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		5283AD7A279EAD430039CA98 /* Route.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Route.swift; sourceTree = "<group>"; };
+		5283AD7F279EB4150039CA98 /* Method.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Method.swift; sourceTree = "<group>"; };
+		5283AD84279FA3170039CA98 /* AppError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppError.swift; sourceTree = "<group>"; };
+		5283AD91279FBEEF0039CA98 /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
+		5283ADA2279FD1F20039CA98 /* ApiResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiResponse.swift; sourceTree = "<group>"; };
 		52B6C3C72781B00C004233A6 /* JosefinSans.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = JosefinSans.ttf; sourceTree = "<group>"; };
 		52B6C3CB2781B025004233A6 /* Lexend.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Lexend.ttf; sourceTree = "<group>"; };
 		52B6C3CF2781B14B004233A6 /* JosefinSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "JosefinSans-Regular.ttf"; sourceTree = "<group>"; };
 		52CD43952783189A00319231 /* ExtensionUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionUI.swift; sourceTree = "<group>"; };
+		52F6B90C279D4F680024679B /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -157,6 +167,7 @@
 		52519561277E15390079723C /* Supports */ = {
 			isa = PBXGroup;
 			children = (
+				5283AD91279FBEEF0039CA98 /* Helper.swift */,
 				5251956D277E16230079723C /* Constants.swift */,
 				52CD43952783189A00319231 /* ExtensionUI.swift */,
 				52B6C3C12781AD44004233A6 /* Font */,
@@ -170,7 +181,7 @@
 			isa = PBXGroup;
 			children = (
 				5205C1C22791ECC000F0C322 /* FetchableImage.swift */,
-				520B6D7A2785407E00DEDAF4 /* FeedModel.swift */,
+				520B6D7A2785407E00DEDAF4 /* FeedData.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -215,7 +226,11 @@
 		52FB1E12278F410B003FE17A /* Networking */ = {
 			isa = PBXGroup;
 			children = (
-				520B6DB7278584DF00DEDAF4 /* ApiService.swift */,
+				52F6B90C279D4F680024679B /* NetworkService.swift */,
+				5283AD7A279EAD430039CA98 /* Route.swift */,
+				5283AD7F279EB4150039CA98 /* Method.swift */,
+				5283AD84279FA3170039CA98 /* AppError.swift */,
+				5283ADA2279FD1F20039CA98 /* ApiResponse.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -365,15 +380,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				52CD43962783189A00319231 /* ExtensionUI.swift in Sources */,
+				52F6B90D279D4F680024679B /* NetworkService.swift in Sources */,
 				5251954F277E150F0079723C /* HomeBiduViewController.swift in Sources */,
-				520B6D7B2785407E00DEDAF4 /* FeedModel.swift in Sources */,
+				520B6D7B2785407E00DEDAF4 /* FeedData.swift in Sources */,
+				5283AD85279FA3170039CA98 /* AppError.swift in Sources */,
 				5251957B277E17180079723C /* HomeCollectionCellController.swift in Sources */,
+				5283AD80279EB4150039CA98 /* Method.swift in Sources */,
+				5283AD7B279EAD430039CA98 /* Route.swift in Sources */,
+				5283AD92279FBEEF0039CA98 /* Helper.swift in Sources */,
 				5251954B277E150F0079723C /* AppDelegate.swift in Sources */,
+				5283ADA3279FD1F20039CA98 /* ApiResponse.swift in Sources */,
 				5251954D277E150F0079723C /* SceneDelegate.swift in Sources */,
 				5251956B277E15FA0079723C /* InteractiveView.swift in Sources */,
 				5251956E277E16230079723C /* Constants.swift in Sources */,
 				5205C1C32791ECC000F0C322 /* FetchableImage.swift in Sources */,
-				520B6DB8278584DF00DEDAF4 /* ApiService.swift in Sources */,
 				52519568277E15E60079723C /* InfoView.swift in Sources */,
 				52519574277E16C20079723C /* HomeTableCellController.swift in Sources */,
 			);

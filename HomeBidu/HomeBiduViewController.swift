@@ -3,7 +3,6 @@ import UIKit
 class HomeBiduViewController: UIViewController {
   @IBOutlet weak var tableView: UITableView!
   var feed = [FeedData]()
-  let api = ApiService()
 }
 
 //MARK: - Life Cycle
@@ -57,7 +56,7 @@ extension HomeBiduViewController {
 //MARK: - Get Data Api
 extension HomeBiduViewController {
   private func getData () {
-    api.getFeedHomeData{ [weak self] (results) in
+    NetWorkService.shared.feedDataRequest() { [weak self] (results) in
       switch results {
       case .success(let listOf):
         self?.feed = listOf.filter{$0.fileImage!.count > 0}
