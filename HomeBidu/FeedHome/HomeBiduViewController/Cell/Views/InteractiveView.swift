@@ -1,23 +1,22 @@
 import UIKit
 
 class InteractiveView: UIView {
-    public var open: Bool?
     private var likeCount: Int?
-    
+
     private lazy var likeButton: UIButton = {
         let likeButton = UIButton()
-        likeButton.setImage(UIImage(named: Image.Heart), for: .normal)
-        likeButton.setImage(UIImage(named: Image.RedHeart), for: .selected)
+        likeButton.setImage(#imageLiteral(resourceName: "tim"), for: .normal)
+        likeButton.setImage(#imageLiteral(resourceName: "timdo"), for: .selected)
         likeButton.addTarget(self,
                              action: #selector(selectedLike),
                              for: .touchUpInside)
         likeButton.translatesAutoresizingMaskIntoConstraints = false
         return likeButton
     }()
-    
+
     private lazy var cmtButton: UIButton = {
         let cmtButton = UIButton()
-        cmtButton.setImage(UIImage(named: Image.Chat), for: .normal)
+        cmtButton.setImage(#imageLiteral(resourceName: "chat"), for: .normal)
         cmtButton.isSelected = false
         cmtButton.addTarget(self,
                             action: #selector(selectedCmt),
@@ -25,10 +24,10 @@ class InteractiveView: UIView {
         cmtButton.translatesAutoresizingMaskIntoConstraints = false
         return cmtButton
     }()
-    
+
     private lazy var shareButton: UIButton = {
         let shareButton = UIButton()
-        shareButton.setImage(UIImage(named: Image.Share), for: .normal)
+        shareButton.setImage(#imageLiteral(resourceName: "share"), for: .normal)
         shareButton.isSelected = false
         shareButton.addTarget(self,
                               action: #selector(selectedShared),
@@ -36,20 +35,20 @@ class InteractiveView: UIView {
         shareButton.translatesAutoresizingMaskIntoConstraints = false
         return shareButton
     }()
-    
+
     private lazy var saveButton: UIButton = {
         let saveButton = UIButton()
-        saveButton.setImage(UIImage(named: Image.Save), for: .normal)
+        saveButton.setImage(#imageLiteral(resourceName: "save"), for: .normal)
         saveButton.addTarget(self,
                              action: #selector(selectedSave),
                              for: .touchUpInside)
         saveButton.translatesAutoresizingMaskIntoConstraints = false
         return saveButton
     }()
-    
+
     private lazy var moreButon: UIButton = {
         let moreButton = UIButton()
-        moreButton.setImage(UIImage(named: Image.More), for: .normal)
+        moreButton.setImage(#imageLiteral(resourceName: "more"), for: .normal)
         moreButton.isSelected = false
         moreButton.addTarget(self,
                              action: #selector(selectedMore),
@@ -57,30 +56,30 @@ class InteractiveView: UIView {
         moreButton.translatesAutoresizingMaskIntoConstraints = false
         return moreButton
     }()
-    
+
     private lazy var countLikeLabel: UILabel = {
         let countLikeLabel = UILabel()
         countLikeLabel.textAlignment = .center
         countLikeLabel.textColor = .white
-        countLikeLabel.font = UIFont(name: Font.LexendRegularFont, size: 13.0)
+        countLikeLabel.font = UIFont(name: K.Fonts.lexendRegular.rawValue, size: 13.0)
         countLikeLabel.translatesAutoresizingMaskIntoConstraints = false
         return countLikeLabel
     }()
-    
+
     private lazy var countCmtLabel: UILabel = {
         let countCmtLabel = UILabel()
         countCmtLabel.textAlignment = .center
         countCmtLabel.textColor = .white
-        countCmtLabel.font = UIFont(name: Font.LexendRegularFont, size: 13.0)
+        countCmtLabel.font = UIFont(name: K.Fonts.lexendRegular.rawValue, size: 13.0)
         countCmtLabel.translatesAutoresizingMaskIntoConstraints = false
         return countCmtLabel
     }()
-    
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupTab()
     }
-    
+
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         setupTab()
@@ -93,7 +92,7 @@ extension InteractiveView {
         setupView()
         setupConstaints()
     }
-    
+
     private func setupView() {
         layer.cornerRadius = frame.size.width / 2.5
         clipsToBounds = true
@@ -108,7 +107,7 @@ extension InteractiveView {
                     saveButton,
                     moreButon)
     }
-    
+
     private func setupConstaints() {
         NSLayoutConstraint.activate([
             likeButton.topAnchor.constraint(equalTo: topAnchor, constant: 10),
@@ -117,7 +116,7 @@ extension InteractiveView {
             likeButton.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 1.0),
             likeButton.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.15)
         ])
-        
+
         NSLayoutConstraint.activate([
             countLikeLabel.topAnchor.constraint(equalTo: likeButton.bottomAnchor, constant: -10),
             countLikeLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
@@ -125,7 +124,7 @@ extension InteractiveView {
             countLikeLabel.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 1.0),
             countLikeLabel.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.05)
         ])
-        
+
         NSLayoutConstraint.activate([
             cmtButton.topAnchor.constraint(equalTo: countLikeLabel.bottomAnchor),
             cmtButton.leadingAnchor.constraint(equalTo: leadingAnchor),
@@ -133,16 +132,16 @@ extension InteractiveView {
             cmtButton.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 1.0),
             cmtButton.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.15)
         ])
-        
+
         NSLayoutConstraint.activate([
             countCmtLabel.topAnchor.constraint(equalTo: cmtButton.bottomAnchor, constant: -10),
             countCmtLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
             countCmtLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
             countCmtLabel.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 1.0),
             countCmtLabel.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.05),
-            
+
         ])
-        
+
         NSLayoutConstraint.activate([
             shareButton.topAnchor.constraint(equalTo: countCmtLabel.bottomAnchor),
             shareButton.leadingAnchor.constraint(equalTo: leadingAnchor),
@@ -150,7 +149,7 @@ extension InteractiveView {
             shareButton.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 1.0),
             shareButton.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.2)
         ])
-        
+
         NSLayoutConstraint.activate([
             saveButton.topAnchor.constraint(equalTo: shareButton.bottomAnchor),
             saveButton.leadingAnchor.constraint(equalTo: leadingAnchor),
@@ -158,7 +157,7 @@ extension InteractiveView {
             saveButton.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 1.0),
             saveButton.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.2)
         ])
-        
+
         NSLayoutConstraint.activate([
             moreButon.topAnchor.constraint(equalTo: saveButton.bottomAnchor),
             moreButon.leadingAnchor.constraint(equalTo: leadingAnchor),
@@ -180,26 +179,23 @@ extension InteractiveView {
             countLikeLabel.text = String(likeCount!)
         }
     }
-    
+
     @objc private func selectedCmt(_ sender: UIButton) {
     }
-    
+
     @objc private func selectedShared(_ sender: UIButton) {
-        print(Button.Shared)
     }
-    
+
     @objc private func selectedSave(_ sender: UIButton) {
-        print(Button.Saved)
     }
-    
+
     @objc private func selectedMore(_ sender: UIButton) {
-        print(Button.More)
     }
 }
 
-//MARK: -getInteractive
+//MARK: -setupUI
 extension InteractiveView {
-    func getInteractive(with feedInteractive: FeedPostModel) {
+    func setupUI(with feedInteractive: FeedPostModel) {
         countLikeLabel.text = String(feedInteractive.likeCount)
         likeCount = feedInteractive.likeCount
         likeButton.isSelected = feedInteractive.isLike

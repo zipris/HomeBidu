@@ -18,15 +18,15 @@ extension HomeTableCell {
 //MARK: - Helper
 extension HomeTableCell {
     private func registerCollectionCell() {
-        collectionView.registerCell(Identifier.HomeIdentifier)
+        collectionView.registerCell(HomeCollectionCell.cellIdentifier)
         collectionView.delegate = self
         collectionView.dataSource = self
     }
-    
+
     func setupData(withFeed feed: FeedPostModel) {
         files = feed.fileImage ?? []
-        informationView.getInformation(with: feed)
-        interactiveView.getInteractive(with: feed)
+        informationView.setupUI(with: feed)
+        interactiveView.setupUI(with: feed)
         collectionView.reloadData()
     }
 }
@@ -36,7 +36,7 @@ extension HomeTableCell: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return files.count
     }
-    
+
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HomeCollectionCell.cellIdentifier,
                                                       for: indexPath) as! HomeCollectionCell

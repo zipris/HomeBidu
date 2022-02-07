@@ -34,7 +34,7 @@ extension HomeBiduViewController {
 //MARK: - Helper
 extension HomeBiduViewController {
     private func registerTableCell() {
-        tableView.registerCell(Identifier.TableIdentifier)
+        tableView.registerCell(HomeTableCell.cellIdentifier)
         tableView.delegate = self
         tableView.dataSource = self
     }
@@ -45,7 +45,7 @@ extension HomeBiduViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return feeds.count
     }
-    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: HomeTableCell.cellIdentifier,
                                                  for: indexPath) as! HomeTableCell
@@ -58,7 +58,7 @@ extension HomeBiduViewController: UITableViewDataSource {
 //MARK: - UITableViewDelegate
 extension HomeBiduViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return tableView.frame.size.height * CGFloat(sizeIphone)
+        return tableView.frame.size.height * CGFloat(K.Constants.sizeIphone)
     }
 }
 

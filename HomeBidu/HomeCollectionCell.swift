@@ -14,7 +14,7 @@ extension HomeCollectionCell {
 //MARK: - setupData
 extension HomeCollectionCell: FetchableImage {
     func setupData(withFile file: FeedFileModel) {
-        imageView.image = UIImage(named: Image.Background)
+        imageView.image = #imageLiteral(resourceName: "background")
         guard let url = file.url else {return}
         fetchImage(from: url, options: nil) { (avatarData) in
             if let data = avatarData {

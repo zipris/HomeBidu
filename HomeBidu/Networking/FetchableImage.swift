@@ -8,16 +8,15 @@ struct FetchableImageOptions {
 }
 //MARK: - FetchableImageHelper
 struct FetchableImageHelper {
-
     static var documentsDirectoryURL = FileManager.default.urls(for: .documentDirectory,
                                                                 in: .userDomainMask)[0]
     static var cachesDirectoryURL = FileManager.default.urls(for: .cachesDirectory,
                                                              in: .userDomainMask)[0]
-
+    
     static func getOptions(_ options: FetchableImageOptions?) -> FetchableImageOptions {
         return options != nil ? options! : FetchableImageOptions()
     }
-
+    
     static func getImageName(from urlString: String) -> String? {
         guard var base64String = urlString.data(using: .utf8)?.base64EncodedString() else {
             return nil
@@ -37,7 +36,7 @@ struct FetchableImageHelper {
         }
         task.resume()
     }
-
+    
     static func loadLocalImage(from url: URL) -> Data? {
         do {
             let imageData = try Data(contentsOf: url)
@@ -51,24 +50,16 @@ struct FetchableImageHelper {
 
 //MARK: - FetchableImage
 protocol FetchableImage {
-    
     func fetchImage(from urlString: String?,
                     options: FetchableImageOptions?,
                     completion: @escaping (_ imageData: Data?) -> Void)
-
+    
     func localFileURL(for imageURL: String?,
                       options: FetchableImageOptions?) -> URL?
-
-    func save(image data: Data,
-              options: FetchableImageOptions) -> Bool
-
-    func delete(using imageURL: String?,
-                options: FetchableImageOptions?) -> Bool
 }
 
 //MARK: - fetchImage
 extension FetchableImage {
-
     public func fetchImage(from urlString: String?,
                            options: FetchableImageOptions? = nil,
                            completion: @escaping (_ imageData: Data?) -> Void) {
@@ -79,10 +70,10 @@ extension FetchableImage {
                let localURL = localURL,
                FileManager.default.fileExists(atPath: localURL.path) {
                 let loadedImageData = FetchableImageHelper.loadLocalImage(from: localURL)
-                print(Notification.Available)
+                print("Available")
                 completion(loadedImageData)
             } else {
-                print(Notification.Downloading)
+                print("Downloading")
                 guard let urlString = urlString, let url = URL(string: urlString) else {
                     completion(nil)
                     return
@@ -97,7 +88,7 @@ extension FetchableImage {
             }
         }
     }
-
+    
     public func localFileURL(for imageURL: String?,
                              options: FetchableImageOptions? = nil) -> URL? {
         let otp = FetchableImageHelper.getOptions(options)
@@ -115,34 +106,5 @@ extension FetchableImage {
             return nil
         }
         return targetDir.appendingPathComponent(imageName)
-    }
-
-    public func save(image data: Data,
-                     options: FetchableImageOptions) -> Bool {
-        guard let url = localFileURL(for: nil, options: options) else {
-            return false
-        }
-        do {
-            try data.write(to: url)
-            return true
-        } catch {
-            print(error.localizedDescription)
-            return false
-        }
-    }
-    
-    public func delete(using imageURL: String?,
-                       options: FetchableImageOptions? = nil) -> Bool {
-        guard let localURL = localFileURL(for: imageURL,options: options),
-              FileManager.default.fileExists(atPath: localURL.path) else {
-            return false
-        }
-        do {
-            try FileManager.default.removeItem(at: localURL)
-            return true
-        } catch {
-            print(error.localizedDescription)
-            return false
-        }
     }
 }
