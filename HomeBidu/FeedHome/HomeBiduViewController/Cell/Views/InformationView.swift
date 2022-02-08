@@ -157,12 +157,12 @@ extension InformationView: FetchableImage {
         famousImageView.isHidden = feedInformation.author.isVerified
         followButton.isHidden = feedInformation.isFollow
         statusLabel.text = feedInformation.content
-        fetchImage(from: feedInformation.author.avatar, options: nil) { (avatarData) in
-            if let data = avatarData {
-                DispatchQueue.main.async {
-                    self.avatarImageView.image = UIImage(data: data)
-                }
-            }
+        fetchImage(from: feedInformation.author.avatar, options: nil) { [weak self]
+            avatarData in
+            guard let self = self,
+                  let data = avatarData else {return}
+            self.avatarImageView.image = UIImage(data: data)
         }
     }
 }
+

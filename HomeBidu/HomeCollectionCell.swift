@@ -8,6 +8,7 @@ class HomeCollectionCell: UICollectionViewCell {
 extension HomeCollectionCell {
     override func awakeFromNib() {
         super.awakeFromNib()
+        imageView.contentMode = .scaleAspectFill
     }
 }
 
@@ -16,14 +17,13 @@ extension HomeCollectionCell: FetchableImage {
     func setupData(withFile file: FeedFileModel) {
         imageView.image = #imageLiteral(resourceName: "background")
         guard let url = file.url else {return}
-        fetchImage(from: url, options: nil) { (avatarData) in
-            if let data = avatarData {
-                DispatchQueue.main.async {
-                    self.imageView.image = UIImage(data: data)
-                }
+        fetchImage(from: url, options: nil) {[weak self] avatarData in
+            guard let self = self,
+                  let data = avatarData else { return }
+            self.imageView.image = UIImage(data: data)
             }
         }
-        imageView.contentMode = .scaleAspectFill
+
     }
-}
+
 

@@ -70,20 +70,24 @@ extension FetchableImage {
                let localURL = localURL,
                FileManager.default.fileExists(atPath: localURL.path) {
                 let loadedImageData = FetchableImageHelper.loadLocalImage(from: localURL)
-                print("Available")
-                completion(loadedImageData)
+                DispatchQueue.main.async {
+                    completion(loadedImageData)
+                }
+
             } else {
-                print("Downloading")
                 guard let urlString = urlString, let url = URL(string: urlString) else {
                     completion(nil)
                     return
                 }
-                FetchableImageHelper.downloadImage(from: url) { (imageData) in
+                FetchableImageHelper.downloadImage(from: url) { imageData in
                     if opt.allowLocalStorage,
                        let localURL = localURL {
                         try? imageData?.write(to: localURL)
                     }
-                    completion(imageData)
+                    DispatchQueue.main.async {
+                        completion(imageData)
+                    }
+
                 }
             }
         }

@@ -1,10 +1,11 @@
 import UIKit
 
 class HomeTableCell: UITableViewCell {
-    private var files: [FeedFileModel] = []
     @IBOutlet weak var interactiveView: InteractiveView!
     @IBOutlet weak var informationView: InformationView!
     @IBOutlet weak var collectionView: UICollectionView!
+
+    private var files: [FeedFileModel] = []
 }
 
 //MARK: - Life Cycle

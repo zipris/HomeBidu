@@ -17,16 +17,16 @@ extension HomeBiduViewController {
 //MARK: - API
 extension HomeBiduViewController {
     private func getData () {
-        NetWorkService.shared.feedDataRequest() { [weak self] (results) in
+        NetWorkService.shared.feedDataRequest() { [weak self] results in
+            guard let self = self else {return}
             switch results {
             case .success(let listOf):
-                self?.feeds = listOf.filter{$0.fileImage!.count > 0}
+                self.feeds = listOf.filter{$0.fileImage!.count > 0}
+                self.tableView.reloadData()
             case .failure(let error):
                 print(error.localizedDescription)
             }
-            DispatchQueue.main.async {
-                self?.tableView.reloadData()
-            }
+
         }
     }
 }
