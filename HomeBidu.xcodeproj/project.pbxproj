@@ -29,6 +29,7 @@
 		5256C32E27B0D69D00749BD5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5256C32D27B0D69D00749BD5 /* Assets.xcassets */; };
 		5256C33627B0DF0F00749BD5 /* UITableView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5256C33527B0DF0F00749BD5 /* UITableView+Extensions.swift */; };
 		5256C33B27B0E36100749BD5 /* UICollectionView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5256C33A27B0E36000749BD5 /* UICollectionView+Extensions.swift */; };
+		525F847227BAC3BF00117FBE /* FeedProductModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525F847127BAC3BF00117FBE /* FeedProductModel.swift */; };
 		527275772783E4420053108A /* HomeBiduTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 527275762783E4420053108A /* HomeBiduTests.swift */; };
 		5283AD7B279EAD430039CA98 /* Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5283AD7A279EAD430039CA98 /* Route.swift */; };
 		5283AD80279EB4150039CA98 /* Method.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5283AD7F279EB4150039CA98 /* Method.swift */; };
@@ -85,6 +86,7 @@
 		5256C32D27B0D69D00749BD5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5256C33527B0DF0F00749BD5 /* UITableView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Extensions.swift"; sourceTree = "<group>"; };
 		5256C33A27B0E36000749BD5 /* UICollectionView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Extensions.swift"; sourceTree = "<group>"; };
+		525F847127BAC3BF00117FBE /* FeedProductModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedProductModel.swift; sourceTree = "<group>"; };
 		527275742783E4420053108A /* HomeBiduTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HomeBiduTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		527275762783E4420053108A /* HomeBiduTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeBiduTests.swift; sourceTree = "<group>"; };
 		527275782783E4420053108A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -149,10 +151,10 @@
 		52519549277E150F0079723C /* HomeBidu */ = {
 			isa = PBXGroup;
 			children = (
+				52FB1E19278F4224003FE17A /* AppDelegate */,
 				5256C31627B0D30700749BD5 /* Helper */,
 				5256C30E27B0D27800749BD5 /* Constant */,
 				5256C31927B0D3A500749BD5 /* Extensions */,
-				52FB1E19278F4224003FE17A /* Scene + App */,
 				52519562277E15440079723C /* Models */,
 				52FB1E12278F410B003FE17A /* Networking */,
 				5256C31727B0D32F00749BD5 /* Resources */,
@@ -219,6 +221,7 @@
 				5256C2F327B0CE3700749BD5 /* FeedCategoryIdModel.swift */,
 				5256C2F827B0CE4C00749BD5 /* FeedMentionModel.swift */,
 				5256C2FD27B0CE6100749BD5 /* FeedBodyTypeIdModel.swift */,
+				525F847127BAC3BF00117FBE /* FeedProductModel.swift */,
 			);
 			path = FeedModel;
 			sourceTree = "<group>";
@@ -325,13 +328,13 @@
 			path = Networking;
 			sourceTree = "<group>";
 		};
-		52FB1E19278F4224003FE17A /* Scene + App */ = {
+		52FB1E19278F4224003FE17A /* AppDelegate */ = {
 			isa = PBXGroup;
 			children = (
 				5251954C277E150F0079723C /* SceneDelegate.swift */,
 				5251954A277E150F0079723C /* AppDelegate.swift */,
 			);
-			name = "Scene + App";
+			name = AppDelegate;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -489,6 +492,7 @@
 				5251956B277E15FA0079723C /* InteractiveView.swift in Sources */,
 				5251956E277E16230079723C /* Constants.swift in Sources */,
 				5256C2EC27B0CE1100749BD5 /* FeedCommentModel.swift in Sources */,
+				525F847227BAC3BF00117FBE /* FeedProductModel.swift in Sources */,
 				5256C33627B0DF0F00749BD5 /* UITableView+Extensions.swift in Sources */,
 				5205C1C32791ECC000F0C322 /* FetchableImage.swift in Sources */,
 				5256C2CB27AF7E6800749BD5 /* FeedAuthorModel.swift in Sources */,
